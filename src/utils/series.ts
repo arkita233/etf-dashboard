@@ -160,3 +160,92 @@ export function aggregateEntriesSeries(
 
   return { dates: sortedDates, series };
 }
+
+/**
+ * Output of {@link normalizeSeriesByBaseline} — same shape as
+ * `AlignedSeriesItem`, but every `points` value is a percentage change
+ * relative to a per-series baseline (default: the first non-zero value on
+ * the shared date axis).
+ *
+ * `originalPoints` retains the raw 亿份 values so a renderer can show actual
+ * numbers in the tooltip while the y axis still reads as percentages.
+ */
+export interface NormalizedSeriesItem extends AlignedSeriesItem {
+  /** Per-series baseline value (亿份). */
+  baselineValue: number;
+  /** Baseline date (YYYY-MM-DD) used for this series. */
+  baselineDate: string;
+  /** Raw points aligned to the shared date axis (in 亿份) for tooltip rendering. */
+  originalPoints: [string, number][];
+}
+
+export interface NormalizedSeries {
+  dates: string[];
+  series: NormalizedSeriesItem[];
+}
+
+/**
+ * Re-align each series as a percentage change from its own baseline day.
+ *
+ * Why this exists: when ETF share counts are on very different absolute
+ * scales (e.g. 50亿 vs 1500亿) plotting them on a single linear yAxis
+ * collapses the small one. This helper maps every series into a common
+ * percentage space, so the chart can keep a single linear `+0%` axis and
+ * still let users compare relative movements.
+ *
+ * Baseline choice: the **first date on the shared `dates` axis** where the
+ * series has a positive value. This is intuitive ("change since I started
+ * watching"). Aggregated entries (list-type `code`) use the first sum
+ * value above 0 from their underlying codes.
+ *
+ * If a series has no positive value, its baseline falls back to 1 so the
+ * percentage math stays finite (and the line just shows +0% throughout).
+ */
+export function normalizeSeriesByBaseline(
+  aligned: AlignedSeries,
+  options: { baselineDate?: string } = {},
+): NormalizedSeries {
+  const { dates, series } = aligned;
+  if (dates.length === 0 || series.length === 0) {
+    return { dates, series: [] };
+  }
+
+  const baselineDate = options.baselineDate ?? dates[0];
+
+  const out: NormalizedSeriesItem[] = series.map((s) => {
+    // Look up baseline value: prefer the explicit baselineDate, else first
+    // strictly positive value on the dates axis.
+    let baselineValue = 0;
+    let chosenBaselineDate = baselineDate;
+    const baselinePoint = s.points.find(([d]) => d === baselineDate);
+    if (baselinePoint && baselinePoint[1] > 0) {
+      baselineValue = baselinePoint[1];
+    } else {
+      for (const [d, v] of s.points) {
+        if (v > 0) {
+          baselineValue = v;
+          chosenBaselineDate = d;
+          break;
+        }
+      }
+    }
+    if (baselineValue <= 0) baselineValue = 1; // avoid divide-by-zero
+
+    const points: [string, number][] = s.points.map(([d, v]) => [
+      d,
+      ((v - baselineValue) / baselineValue) * 100,
+    ]);
+
+    return {
+      name: s.name,
+      code: s.code,
+      aggregatedCodes: s.aggregatedCodes,
+      points,
+      baselineValue,
+      baselineDate: chosenBaselineDate,
+      originalPoints: s.points.slice(),
+    };
+  });
+
+  return { dates, series: out };
+}

@@ -14,7 +14,11 @@ import type {
   SeriesOption,
 } from 'echarts';
 import type { EtfRef, SharePoint } from '../types/config';
-import { aggregateEntriesSeries, toYiShares } from '../utils/series';
+import {
+  aggregateEntriesSeries,
+  normalizeSeriesByBaseline,
+  toYiShares,
+} from '../utils/series';
 
 echarts.use([
   LineChart,
@@ -61,6 +65,12 @@ export function ShareChart({
 
   const { dates, series } = useMemo(() => aggregateEntriesSeries(refs, data), [refs, data]);
 
+  // Decide which display mode to use. We pick once per series set based on
+  // the spread between the largest and smallest series' peak value. The
+  // actual transformation lives in buildOption — here we just compute a
+  // boolean so the effect dependency is cheap.
+  const usePercentMode = useMemo(() => computeSeriesScaleUsePercent(series), [series]);
+
   // Init chart instance once
   useEffect(() => {
     const el = containerRef.current;
@@ -103,9 +113,16 @@ export function ShareChart({
       return;
     }
 
-    const option = buildOption({ title, dates, series, compact });
+    const option = buildOption({
+      title,
+      dates,
+      series,
+      compact,
+      displayMode: usePercentMode ? 'percent' : 'absolute',
+      baselineDate: dates[0],
+    });
     chart.setOption(option, true);
-  }, [title, refs, series, dates, loading, compact]);
+  }, [title, refs, series, dates, loading, compact, usePercentMode]);
 
   // Re-resize on prop-driven height changes
   useEffect(() => {
@@ -146,6 +163,53 @@ interface BuildOptionArgs {
     aggregatedCodes?: string[];
   }[];
   compact: boolean;
+  displayMode: 'absolute' | 'log' | 'percent';
+  baselineDate: string;
+}
+
+/**
+ * Span heuristic — should the chart switch into "relative change since
+ * baseline" mode?
+ *
+ * Returns `true` when the largest series' max value is at least
+ * PERCENT_MODE_RATIO× the smallest's. In that case a single linear 亿份 axis
+ * would visually crush the small series; we switch to a "% since baseline"
+ * axis and let the tooltip show the real 亿份 values on hover.
+ *
+ * Threshold chosen so realistic ETF mixes (e.g. 科创50 ≈ 50亿  vs  沪深300
+ * ≈ 1500亿  — a 30× gap) trip percent mode. Below ~30× a single linear
+ * 亿份 axis reads comfortably; we keep absolute so users don't have to
+ * mentally translate "%" when the data isn't actually far apart.
+ */
+const PERCENT_MODE_RATIO = 30;
+
+function computeSeriesScaleUsePercent(series: BuildOptionArgs['series']): boolean {
+  if (series.length < 2) return false;
+  const maxes: number[] = [];
+  for (const s of series) {
+    let m = 0;
+    for (const [, v] of s.points) if (v > m) m = v;
+    if (m > 0) maxes.push(m);
+  }
+  if (maxes.length < 2) return false;
+  const min = Math.min(...maxes);
+  const max = Math.max(...maxes);
+  if (min <= 0) return false;
+  return max / min >= PERCENT_MODE_RATIO;
+}
+
+/**
+ * Format a y-axis tick for the log display mode (kept here for future use
+ * — currently auto-switched into percent mode instead of log, since
+ * percent is more readable, but a caller can opt into log by setting
+ * `displayMode: 'log'` explicitly).
+ */
+function logAxisLabelFormatter(v: number): string {
+  if (!isFinite(v) || v <= 0) return '';
+  if (v >= 1) return `${v.toFixed(v >= 100 ? 0 : 1)}亿份`;
+  if (v >= 0.01) return `${(v * 100).toFixed(0)}千万份`;
+  if (v >= 1e-4) return `${(v * 10000).toFixed(0)}万份`;
+  return `${(v * 1e8).toFixed(0)}份`;
 }
 
 /**
@@ -153,39 +217,77 @@ interface BuildOptionArgs {
  * and (when needed) one or two yAxes. The user requirement is to overlay all
  * configured ETFs on the same chart, so we never split into N sub-grids.
  *
- * yAxis strategy:
- *   - 1 series          → 1 left yAxis
- *   - 2 series          → 1 left yAxis (both share scale)
- *   - 3+ series         → 2 yAxes (left + right); split by index, pair-adjacent.
+ * yAxis strategy (`displayMode` from caller):
+ *   - 'absolute' (max/min ratio < 30×)  → linear, single 亿份 axis (1-2 series)
+ *     or dual yAxis split by index parity (3+ series). Easy to read in 亿份.
+ *   - 'percent'  (ratio ≥ 30×)           → linear `% since baseline` axis.
+ *     Every series is normalized to its own first-day value, so wildly
+ *     different absolutes collapse into a single uniform vertical scale.
+ *     Tooltip still prints the *actual* 亿份 value plus the delta, so users
+ *     can hover to see the truth.
+ *   - 'log'      (reserved for future use) → log10 axis. Not auto-enabled
+ *     now since percent mode covers the same ground more readably.
  *
- * This keeps the chart visually "one chart" while still allowing wildly
- * different scale series to be readable.
+ * In every mode the tooltip reveals real share counts — the transformation
+ * is purely visual.
  */
-function buildOption({ title, dates, series, compact }: BuildOptionArgs): EChartsCoreOption {
-  const tooltip: EChartsCoreOption['tooltip'] = {
-    trigger: 'axis',
-    axisPointer: { type: 'cross' },
-    valueFormatter: (v: unknown) =>
-      typeof v === 'number' ? `${v.toFixed(2)} 亿份` : String(v ?? '-'),
+function buildOption({
+  title,
+  dates,
+  series,
+  compact,
+  displayMode,
+  baselineDate,
+}: BuildOptionArgs): EChartsCoreOption {
+  // Pre-compute the per-series display payload. In absolute/log modes this
+  // is just the original values (units: 亿份). In percent mode we delegate
+  // to `normalizeSeriesByBaseline` so the same helper is reusable from
+  // elsewhere (e.g. exporters, tests).
+  type DisplayItem = {
+    name: string;
+    code: string;
+    aggregatedCodes?: string[];
+    yData: number[];                   // what the yAxis actually plots
+    originalValues: number[];          // raw 亿份 for tooltip rendering
+    baselineValue?: number;            // present in percent mode
   };
+  const normalized =
+    displayMode === 'percent'
+      ? normalizeSeriesByBaseline(
+          { dates, series },
+          { baselineDate },
+        )
+      : null;
 
-  // For 3+ series we split into two yAxes (left / right) so the chart is still
-  // visually a single chart while accommodating widely different scales.
-  const showRightAxis = series.length >= 3;
+  const display: DisplayItem[] = series.map((s, i) => {
+    const yi = s.points.map(([, v]) => toYiShares(v));
+    if (normalized) {
+      const n = normalized.series[i];
+      return {
+        name: s.name,
+        code: s.code,
+        aggregatedCodes: s.aggregatedCodes,
+        yData: n.points.map(([, v]) => v),
+        originalValues: n.originalPoints.map(([, v]) => v),
+        baselineValue: n.baselineValue,
+      };
+    }
+    return {
+      name: s.name,
+      code: s.code,
+      aggregatedCodes: s.aggregatedCodes,
+      yData: yi,
+      originalValues: yi,
+    };
+  });
+
+  const showRightAxis = displayMode !== 'percent' && displayMode !== 'log' && series.length >= 3;
 
   // Build compact "axis title" strings: list of ETF codes (short, fits the
   // margin). The full name still appears in legend/tooltip.
-  //
-  // Single-code entries keep showing their code on the axis; aggregated
-  // entries (whose `code` is now a "+"-joined synthetic id) read more
-  // clearly with the human `name` instead — the codes aren't useful on the
-  // axis margin anyway.
   const buildAxisTitle = (indices: number[]): string => {
-    const parts = indices.map((i) => {
-      const s = series[i];
-      return s.aggregatedCodes ? s.name : s.code;
-    });
-    return `${parts.join(' / ')}（亿份）`;
+    const parts = indices.map((i) => series[i].aggregatedCodes ? series[i].name : series[i].code);
+    return `${parts.join(' / ')}`;
   };
 
   const leftIdx: number[] = [];
@@ -196,44 +298,116 @@ function buildOption({ title, dates, series, compact }: BuildOptionArgs): EChart
     series.forEach((_, i) => leftIdx.push(i));
   }
 
-  const yAxes: object[] = [
-    {
-      type: 'value',
-      name: showRightAxis ? buildAxisTitle(leftIdx) : '份额（亿份）',
-      nameLocation: 'middle',
-      nameGap: 50,
-      nameTextStyle: { fontSize: compact ? 10 : 11, color: '#475569' },
-      position: 'left',
-      axisLabel: { fontSize: compact ? 10 : 11, formatter: (v: number) => v.toFixed(0) },
-      scale: true,
+  // Tooltip: in percent mode, show actual value + delta so the user can
+  // hover and see the truth behind the percentage normalization. In other
+  // modes the yData IS the value, so just print it with proper units.
+  const tooltip: EChartsCoreOption['tooltip'] = {
+    trigger: 'axis',
+    axisPointer: { type: 'cross' },
+    formatter: (params: unknown) => {
+      const arr = Array.isArray(params) ? params : [params];
+      // Axis value = category label = the date.
+      const date = (arr[0] as { axisValueLabel?: unknown; axisValue?: unknown })?.axisValueLabel
+        ?? (arr[0] as { axisValue?: unknown })?.axisValue
+        ?? '';
+      const head =
+        displayMode === 'percent'
+          ? `<div style="font-weight:600;margin-bottom:4px">${date}（与起点 {b0} 比较）</div>`
+              .replace('{b0}', baselineDate)
+          : `<div style="font-weight:600;margin-bottom:4px">${date}</div>`;
+      const rows = arr
+        .map((p) => {
+          const pp = p as { marker?: string; seriesName?: string; dataIndex?: number };
+          const idx = pp.dataIndex ?? 0;
+          const item = display.find((d) => d.name === pp.seriesName);
+          if (!item) return `${pp.marker ?? ''}${pp.seriesName ?? ''}: —`;
+          const actual = item.originalValues[idx];
+          const actualYi = actual ?? 0;
+          if (displayMode === 'percent' && item.baselineValue !== undefined) {
+            // baselineValue is stored in 份 (raw). Convert to 亿份 for the
+            // printed baseline so the units match the rest of the tooltip.
+            const baselineYi = item.baselineValue / 1e8;
+            const delta = (actualYi / baselineYi - 1) * 100;
+            const sign = delta > 0 ? '+' : '';
+            return `${pp.marker ?? ''}${pp.seriesName ?? ''}: ${actualYi.toFixed(2)} 亿份（${sign}${delta.toFixed(2)}% vs ${baselineYi.toFixed(2)}）`;
+          }
+          return `${pp.marker ?? ''}${pp.seriesName ?? ''}: ${actualYi.toFixed(2)} 亿份`;
+        })
+        .join('');
+      return head + rows;
     },
-  ];
-  if (showRightAxis) {
-    yAxes.push({
+  };
+
+  // yAxis config — different per mode.
+  const baseName =
+    displayMode === 'percent'
+      ? `相对起点（%）` + (showRightAxis ? '' : `\n起点 ${baselineDate}`)
+      : showRightAxis
+        ? buildAxisTitle(leftIdx)
+        : '份额（亿份）';
+
+  const makeYAxis = (position: 'left' | 'right', name: string): object => {
+    if (displayMode === 'log') {
+      return {
+        type: 'log',
+        logBase: 10,
+        name,
+        nameLocation: 'middle',
+        nameGap: 60,
+        nameTextStyle: { fontSize: compact ? 10 : 11, color: '#475569' },
+        position,
+        min: 'dataMin',
+        axisLabel: {
+          fontSize: compact ? 10 : 11,
+          formatter: (v: number) => logAxisLabelFormatter(v),
+        },
+      };
+    }
+    if (displayMode === 'percent') {
+      return {
+        type: 'value',
+        name,
+        nameLocation: 'middle',
+        nameGap: 60,
+        nameTextStyle: { fontSize: compact ? 10 : 11, color: '#475569' },
+        position,
+        axisLabel: {
+          fontSize: compact ? 10 : 11,
+          formatter: (v: number) => `${v >= 0 ? '+' : ''}${v.toFixed(0)}%`,
+        },
+        // Symmetric-ish extent if data is mostly near 0; otherwise ECharts
+        // picks based on data.
+        scale: true,
+      };
+    }
+    return {
       type: 'value',
-      name: buildAxisTitle(rightIdx),
+      name,
       nameLocation: 'middle',
       nameGap: 50,
       nameTextStyle: { fontSize: compact ? 10 : 11, color: '#475569' },
-      position: 'right',
+      position,
       axisLabel: { fontSize: compact ? 10 : 11, formatter: (v: number) => v.toFixed(0) },
       scale: true,
-    });
+    };
+  };
+
+  const yAxes: object[] = [makeYAxis('left', baseName)];
+  if (showRightAxis) {
+    yAxes.push(makeYAxis('right', buildAxisTitle(rightIdx)));
   }
 
-  const seriesOpt: SeriesOption[] = series.map((s, i) => {
+  const seriesOpt: SeriesOption[] = display.map((d, i) => {
     const yAxisIndex = showRightAxis ? (i % 2) : 0;
     const color = PALETTE[i % PALETTE.length];
-    const isAggregated = !!s.aggregatedCodes;
+    const isAggregated = !!d.aggregatedCodes;
     return {
-      name: s.name,
+      name: d.name,
       type: 'line',
       yAxisIndex,
-      data: s.points.map(([, v]) => toYiShares(v)),
+      data: d.yData,
       showSymbol: false,
       smooth: 0.1,
-      // Aggregated-sum lines are drawn dashed so they're visually
-      // distinguishable from the underlying single-ETF lines.
       lineStyle: isAggregated
         ? { width: 2, color, type: 'dashed' }
         : { width: 2, color },
@@ -247,7 +421,7 @@ function buildOption({ title, dates, series, compact }: BuildOptionArgs): EChart
     legend: { top: 28, type: 'scroll' },
     grid: {
       left: 60,
-      right: showRightAxis ? 70 : 30,
+      right: displayMode === 'percent' ? 80 : showRightAxis ? 70 : 30,
       top: 70,
       bottom: 60,
       containLabel: true,
