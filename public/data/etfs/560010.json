@@ -1,0 +1,37 @@
+{
+  "code": "560010",
+  "name": "宽基合计（虚线）",
+  "shares": [
+    {
+      "date": "2026-07-02",
+      "value": 1584621700.0000002
+    }
+  ],
+  "dailyChange": [
+    {
+      "date": "2026-07-02",
+      "value": null,
+      "pct": null
+    }
+  ],
+  "weeklyChange": [
+    {
+      "date": "2026-07-02",
+      "value": null,
+      "pct": null
+    }
+  ],
+  "monthlyChange": [
+    {
+      "date": "2026-07-02",
+      "value": null,
+      "pct": null
+    }
+  ],
+  "meta": {
+    "source": "SSE",
+    "fetchedAt": "2026-07-05T10:53:08.625Z",
+    "note": "real SSE API data, sliced from raw cache",
+    "isMock": false
+  }
+}

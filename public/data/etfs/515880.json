@@ -1,0 +1,37 @@
+{
+  "code": "515880",
+  "name": "通信ETF国泰",
+  "shares": [
+    {
+      "date": "2026-07-02",
+      "value": 33958387000
+    }
+  ],
+  "dailyChange": [
+    {
+      "date": "2026-07-02",
+      "value": null,
+      "pct": null
+    }
+  ],
+  "weeklyChange": [
+    {
+      "date": "2026-07-02",
+      "value": null,
+      "pct": null
+    }
+  ],
+  "monthlyChange": [
+    {
+      "date": "2026-07-02",
+      "value": null,
+      "pct": null
+    }
+  ],
+  "meta": {
+    "source": "SSE",
+    "fetchedAt": "2026-07-05T10:53:08.654Z",
+    "note": "real SSE API data, sliced from raw cache",
+    "isMock": false
+  }
+}

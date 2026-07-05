@@ -1,0 +1,37 @@
+{
+  "code": "510880",
+  "name": "红利ETF华泰柏瑞",
+  "shares": [
+    {
+      "date": "2026-07-02",
+      "value": 7977675699.999999
+    }
+  ],
+  "dailyChange": [
+    {
+      "date": "2026-07-02",
+      "value": null,
+      "pct": null
+    }
+  ],
+  "weeklyChange": [
+    {
+      "date": "2026-07-02",
+      "value": null,
+      "pct": null
+    }
+  ],
+  "monthlyChange": [
+    {
+      "date": "2026-07-02",
+      "value": null,
+      "pct": null
+    }
+  ],
+  "meta": {
+    "source": "SSE",
+    "fetchedAt": "2026-07-05T10:53:08.633Z",
+    "note": "real SSE API data, sliced from raw cache",
+    "isMock": false
+  }
+}

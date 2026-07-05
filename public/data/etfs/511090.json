@@ -1,0 +1,37 @@
+{
+  "code": "511090",
+  "name": "30年国债ETF",
+  "shares": [
+    {
+      "date": "2026-07-02",
+      "value": 256178100
+    }
+  ],
+  "dailyChange": [
+    {
+      "date": "2026-07-02",
+      "value": null,
+      "pct": null
+    }
+  ],
+  "weeklyChange": [
+    {
+      "date": "2026-07-02",
+      "value": null,
+      "pct": null
+    }
+  ],
+  "monthlyChange": [
+    {
+      "date": "2026-07-02",
+      "value": null,
+      "pct": null
+    }
+  ],
+  "meta": {
+    "source": "SSE",
+    "fetchedAt": "2026-07-05T10:53:08.628Z",
+    "note": "real SSE API data, sliced from raw cache",
+    "isMock": false
+  }
+}

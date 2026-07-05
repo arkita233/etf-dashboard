@@ -1,0 +1,37 @@
+{
+  "code": "515260",
+  "name": "电子ETF华宝",
+  "shares": [
+    {
+      "date": "2026-07-02",
+      "value": 1008568400
+    }
+  ],
+  "dailyChange": [
+    {
+      "date": "2026-07-02",
+      "value": null,
+      "pct": null
+    }
+  ],
+  "weeklyChange": [
+    {
+      "date": "2026-07-02",
+      "value": null,
+      "pct": null
+    }
+  ],
+  "monthlyChange": [
+    {
+      "date": "2026-07-02",
+      "value": null,
+      "pct": null
+    }
+  ],
+  "meta": {
+    "source": "SSE",
+    "fetchedAt": "2026-07-05T10:53:08.655Z",
+    "note": "real SSE API data, sliced from raw cache",
+    "isMock": false
+  }
+}

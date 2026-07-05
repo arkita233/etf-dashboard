@@ -1,0 +1,37 @@
+{
+  "code": "510330",
+  "name": "沪深300ETF华夏",
+  "shares": [
+    {
+      "date": "2026-07-02",
+      "value": 7554849800
+    }
+  ],
+  "dailyChange": [
+    {
+      "date": "2026-07-02",
+      "value": null,
+      "pct": null
+    }
+  ],
+  "weeklyChange": [
+    {
+      "date": "2026-07-02",
+      "value": null,
+      "pct": null
+    }
+  ],
+  "monthlyChange": [
+    {
+      "date": "2026-07-02",
+      "value": null,
+      "pct": null
+    }
+  ],
+  "meta": {
+    "source": "SSE",
+    "fetchedAt": "2026-07-05T10:53:08.621Z",
+    "note": "real SSE API data, sliced from raw cache",
+    "isMock": false
+  }
+}
