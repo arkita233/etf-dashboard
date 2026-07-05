@@ -40,7 +40,7 @@ subCharts:
 
         
   - id: "gold"
-    title: "黄金合计"
+    title: "黄金"
     etfs:
       - code: ["518880","518660","518680"]
-
+        name: "黄金合计"
