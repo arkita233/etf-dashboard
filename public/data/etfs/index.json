@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-05T11:44:42.861Z",
-  "totalEtfs": 12,
+  "generatedAt": "2026-07-05T11:52:25.993Z",
+  "totalEtfs": 13,
   "etfs": [
     {
       "code": "510330",
@@ -51,14 +51,6 @@
       "latestShares": 4409057700
     },
     {
-      "code": "510230",
-      "name": "富国上证180ETF金融",
-      "dataFile": "510230.json",
-      "firstDate": "2025-07-08",
-      "lastDate": "2026-07-03",
-      "latestShares": 669808000
-    },
-    {
       "code": "511090",
       "name": "30年国债ETF",
       "dataFile": "511090.json",
@@ -92,11 +84,27 @@
     },
     {
       "code": "518880",
-      "name": "黄金ETF华安",
+      "name": "黄金合计",
       "dataFile": "518880.json",
       "firstDate": "2025-07-08",
       "lastDate": "2026-07-03",
       "latestShares": 10384240800
+    },
+    {
+      "code": "518660",
+      "name": "黄金合计",
+      "dataFile": "518660.json",
+      "firstDate": "2025-07-08",
+      "lastDate": "2026-07-03",
+      "latestShares": 927152700
+    },
+    {
+      "code": "518680",
+      "name": "黄金合计",
+      "dataFile": "518680.json",
+      "firstDate": "2025-07-08",
+      "lastDate": "2026-07-03",
+      "latestShares": 768169500
     }
   ]
 }

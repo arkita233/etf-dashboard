@@ -21,8 +21,7 @@ subCharts:
     etfs:
       - code: "510180"
         name: "上证180ETF华安"
-      - code: "510230"
-        name: "富国上证180ETF金融"        
+    
   - id: "gov-bond"
     title: "国债/利率债"
     etfs:
@@ -43,8 +42,5 @@ subCharts:
   - id: "gold"
     title: "黄金"
     etfs:
-      - code: "518880"
-        name: "黄金ETF华安"
-
-
-
+      - code: ["518880","518660","518680"]
+        name: "黄金合计"
