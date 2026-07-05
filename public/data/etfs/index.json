@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-05T11:52:25.993Z",
-  "totalEtfs": 13,
+  "generatedAt": "2026-07-05T12:01:11.520Z",
+  "totalEtfs": 24,
   "etfs": [
     {
       "code": "510330",
@@ -105,6 +105,94 @@
       "firstDate": "2025-07-08",
       "lastDate": "2026-07-03",
       "latestShares": 768169500
+    },
+    {
+      "code": "510300",
+      "name": "沪深300系合计",
+      "dataFile": "510300.json",
+      "firstDate": "2025-07-08",
+      "lastDate": "2026-07-03",
+      "latestShares": 17069887700
+    },
+    {
+      "code": "510310",
+      "name": "沪深300系合计",
+      "dataFile": "510310.json",
+      "firstDate": "2025-07-08",
+      "lastDate": "2026-07-03",
+      "latestShares": 9175244000
+    },
+    {
+      "code": "510360",
+      "name": "沪深300系合计",
+      "dataFile": "510360.json",
+      "firstDate": "2025-07-08",
+      "lastDate": "2026-07-03",
+      "latestShares": 1556381200
+    },
+    {
+      "code": "510380",
+      "name": "沪深300系合计",
+      "dataFile": "510380.json",
+      "firstDate": "2025-07-08",
+      "lastDate": "2026-07-03",
+      "latestShares": 1242802400
+    },
+    {
+      "code": "588060",
+      "name": "科创50系合计",
+      "dataFile": "588060.json",
+      "firstDate": "2025-07-08",
+      "lastDate": "2026-07-03",
+      "latestShares": 5323140000
+    },
+    {
+      "code": "510100",
+      "name": "上证50系合计",
+      "dataFile": "510100.json",
+      "firstDate": "2025-07-08",
+      "lastDate": "2026-07-03",
+      "latestShares": 1122806800
+    },
+    {
+      "code": "510710",
+      "name": "上证50系合计",
+      "dataFile": "510710.json",
+      "firstDate": "2025-07-08",
+      "lastDate": "2026-07-03",
+      "latestShares": 104018900
+    },
+    {
+      "code": "512500",
+      "name": "中证500系合计",
+      "dataFile": "512500.json",
+      "firstDate": "2025-07-08",
+      "lastDate": "2026-07-03",
+      "latestShares": 1612808800
+    },
+    {
+      "code": "510580",
+      "name": "中证500系合计",
+      "dataFile": "510580.json",
+      "firstDate": "2025-07-08",
+      "lastDate": "2026-07-03",
+      "latestShares": 944568300
+    },
+    {
+      "code": "510510",
+      "name": "中证500系合计",
+      "dataFile": "510510.json",
+      "firstDate": "2025-07-08",
+      "lastDate": "2026-07-03",
+      "latestShares": 769038300
+    },
+    {
+      "code": "510590",
+      "name": "中证500系合计",
+      "dataFile": "510590.json",
+      "firstDate": "2025-07-08",
+      "lastDate": "2026-07-03",
+      "latestShares": 138386100
     }
   ]
 }
