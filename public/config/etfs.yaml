@@ -3,15 +3,10 @@ mainChart:
   etfs:
     - code: "510330"
       name: "沪深300ETF华夏"
-    - code: "510050"
-      name: "上证50ETF华夏"
-    - code: "560010"
-      name: "中证1000ETF广发"
-    - code: "510500"
-      name: "中证500ETF南方"
+    - code: ["510050", "510500", "560010"]
+      name: "宽基合计（虚线）"
     - code: "588080"
       name: "科创50ETF易方达"
-
   # 注：上面 code: ["510050", "510500", "560010"] 这种写法
   # 表示按日加总列表中 ETF 的份额，画成一条「合计」虚线。
   # 只需这3只 ETF 的 JSON 文件存在于 public/data/etfs/，
@@ -177,6 +172,20 @@ subCharts:
     etfs:
       - code: "562910"
         name: "高端制造ETF易方达"
+
+  # “演示于同一张图中展示不同量级的 ETF”
+  # 这组中包含体量差距够大的几只（高端制造 ~2 亿份 vs 医疗 ETF ~800 亿份），
+  # 会自动使用“相对起点（%）”徐轴：所有线统一起点 0%，能同时能看清；
+  # hover tooltip 上仍会显示每点的**实际**份额 + 与起点偏差百分比。
+  - id: "cross-scale-demo"
+    title: "不同量级同一图（%轴演示）"
+    etfs:
+      - code: "562910"
+        name: "高端制造ETF易方达"
+      - code: "588080"
+        name: "科创50ETF易方达"
+      - code: "512170"
+        name: "医疗ETF华宝"
 
 
   - id: "innovative-drug"
