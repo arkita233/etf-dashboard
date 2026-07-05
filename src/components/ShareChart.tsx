@@ -400,7 +400,7 @@ function buildOption({
   const seriesOpt: SeriesOption[] = display.map((d, i) => {
     const yAxisIndex = showRightAxis ? (i % 2) : 0;
     const color = PALETTE[i % PALETTE.length];
-    const isAggregated = !!d.aggregatedCodes;
+    // const isAggregated = !!d.aggregatedCodes;
     return {
       name: d.name,
       type: 'line',
