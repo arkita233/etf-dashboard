@@ -1,0 +1,97 @@
+name: Refresh ETF data and deploy to GitHub Pages
+
+# 触发条件：
+#   1. 每周一到周五北京时间凌晨 2:00（UTC 18:00）自动跑（收盘后约 2 小时，确保数据已落库）
+#   2. main 分支 push 时也跑（手动触发更新或修改配置/代码）
+#   3. 手动触发（Actions 页面 → Run workflow）
+
+on:
+  schedule:
+    # 北京时间 02:00 = UTC 18:00（前一天）
+    # 选 02:00 是因为上交所 ETF 份额数据大约在收盘后 1-2 小时更新到 query.sse.com.cn
+    - cron: '0 18 * * 1-5'
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      days:
+        description: '回溯天数（覆盖默认）'
+        required: false
+        default: '180'
+
+# 权限：让 workflow 可以写 pages、用 OIDC 部署、以及 push 数据
+permissions:
+  contents: write   # 需要 push 回仓库（提交 raw 缓存和切片）
+  pages: write
+  id-token: write
+
+# 防止并发跑（比如手动触发时上一次还没跑完）
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  refresh-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate config
+        run: npm run validate-config
+
+      - name: Sync config to public/
+        run: npm run sync-config
+
+      # === 核心步骤：拉取上交所每日 ETF 份额（增量拉 raw + 切片 etfs） ===
+      - name: Fetch daily ETF shares (SSE) - raw + aggregate
+        env:
+          # 支持手动覆盖回溯天数
+          DAYS: ${{ github.event.inputs.days || '365' }}
+        run: npm run fetch-data -- --days=$DAYS
+        continue-on-error: true   # 数据拉取失败不阻塞部署（用旧数据）
+
+      # === 提交 raw 缓存和切片回仓库 ===
+      # raw 缓存允许未来加新 ETF 时不用重新拉数据
+      - name: Commit updated data back to repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/data/raw/ public/data/etfs/ public/config/ || true
+          if git diff --cached --quiet; then
+            echo "No data changes to commit"
+          else
+            git commit -m "data: refresh raw cache and etf slices [skip ci]"
+            git push
+          fi
+
+      # === 构建静态站点 ===
+      - name: Build
+        run: npm run build
+
+      # === 部署到 GitHub Pages ===
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
