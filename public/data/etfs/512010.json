@@ -1,6 +1,6 @@
 {
   "code": "512010",
-  "name": "① 医药医疗合计",
+  "name": "医药医疗合计",
   "shares": [
     {
       "date": "2025-07-08",
@@ -4571,7 +4571,7 @@
   ],
   "meta": {
     "source": "SSE",
-    "fetchedAt": "2026-07-05T12:05:13.653Z",
+    "fetchedAt": "2026-07-05T12:11:12.269Z",
     "note": "real SSE API data, sliced from raw cache",
     "isMock": false
   }
