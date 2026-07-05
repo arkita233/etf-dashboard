@@ -408,9 +408,7 @@ function buildOption({
       data: d.yData,
       showSymbol: false,
       smooth: 0.1,
-      lineStyle: isAggregated
-        ? { width: 2, color, type: 'dashed' }
-        : { width: 2, color },
+      lineStyle: { width: 2, color },
       itemStyle: { color },
     };
   });
