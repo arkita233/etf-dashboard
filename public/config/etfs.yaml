@@ -3,14 +3,15 @@ mainChart:
   etfs:
     - code: "510330"
       name: "沪深300ETF华夏"
-    - code: ["510050", "510500", "560010"]
-      name: "宽基合计（虚线）"
+    - code: "510050"
+      name: "上证50ETF华夏"
+    - code: "560010"
+      name: "中证1000ETF广发"
+    - code: "510500"
+      name: "中证500ETF南方"
     - code: "588080"
       name: "科创50ETF易方达"
-  # 注：上面 code: ["510050", "510500", "560010"] 这种写法
-  # 表示按日加总列表中 ETF 的份额，画成一条「合计」虚线。
-  # 只需这3只 ETF 的 JSON 文件存在于 public/data/etfs/，
-  # 前端会自动合并。name 是图例／tooltip 上显示的名字。
+
 
 subCharts:
   # ---------- 原有主题 ----------
@@ -28,32 +29,6 @@ subCharts:
       - code: "511090"
         name: "30年国债ETF"
 
-  - id: "credit-bond"
-    title: "信用债"
-    etfs:
-      - code: "511220"
-        name: "城投ETF"
-        
-  - id: "cop-bond"
-    title: "公司债"
-    etfs:
-      - code: "511030"
-        name: "公司债ETF"
-
-        
-  - id: "bank"
-    title: "银行保险"
-    etfs:
-      - code: "512800"
-        name: "银行ETF华宝"
-      - code: "512700"
-        name: "银行ETF南方"
-      - code: "512070"
-        name: "非银ETF易方达"
-      # 下面这种「数组型 code」 会画成一条「银行+合计」虚线：
-      - code: ["512800", "512700"]
-        name: "银行两手合计"
-        
   - id: "dividend"
     title: "红利/高股息"
     etfs:
@@ -71,126 +46,5 @@ subCharts:
       - code: "518880"
         name: "黄金ETF华安"
 
-  - id: "sector"
-    title: "半导体芯片"
-    etfs:
-      - code: "588200"
-        name: "华夏上证科创芯片ETF"
-      - code: "512480"
-        name: "半导体ETF国联安"
 
-
-  - id: "medical"
-    title: "医药医疗"
-    etfs:
-      - code: "512170"
-        name: "医疗ETF华宝"
-
-
-  - id: "consumer"
-    title: "消费"
-    etfs:
-      - code: "512690"
-        name: "酒ETF鹏华"
-
-  - id: "military"
-    title: "军工"
-    etfs:
-      - code: "512660"
-        name: "军工ETF国泰"
-      - code: "512670"
-        name: "国防ETF鹏华"
-
-
-  - id: "new-energy"
-    title: "新能源"
-    etfs:
-      - code: "515700"
-        name: "新能车ETF平安"
-      - code: "516160"
-        name: "新能源ETF南方"
-
-
-  # ---------- 新增二级行业 / 主题 ----------
-
-
-
-  - id: "securities"
-    title: "证券/券商"
-    etfs:
-      - code: "512880"
-        name: "证券ETF国泰"
-      - code: "512000"
-        name: "券商ETF华宝"
-
-
-  - id: "electricity"
-    title: "电力/公用事业"
-    etfs:
-      - code: "560550"
-        name: "电力ETF广发"
-
-  - id: "coal"
-    title: "煤炭"
-    etfs:
-      - code: "515220"
-        name: "煤炭ETF国泰"
-
-  - id: "metals"
-    title: "有色金属"
-    etfs:
-      - code: "512400"
-        name: "有色金属ETF南方"
-
-  - id: "chemicals"
-    title: "化工"
-    etfs:
-      - code: "516020"
-        name: "化工ETF易方达"
-      - code: "516120"
-        name: "化工ETF富国"
-
-
-  - id: "5g-communication"
-    title: "通信/5G"
-    etfs:
-      - code: "515050"
-        name: "5GETF华夏"
-      - code: "515880"
-        name: "通信ETF国泰"
-
-
-  - id: "electronics"
-    title: "电子"
-    etfs:
-      - code: "515260"
-        name: "电子ETF华宝"
-
-
-  - id: "high-end-manufacturing"
-    title: "高端制造"
-    etfs:
-      - code: "562910"
-        name: "高端制造ETF易方达"
-
-  # “演示于同一张图中展示不同量级的 ETF”
-  # 这组中包含体量差距够大的几只（高端制造 ~2 亿份 vs 医疗 ETF ~800 亿份），
-  # 会自动使用“相对起点（%）”徐轴：所有线统一起点 0%，能同时能看清；
-  # hover tooltip 上仍会显示每点的**实际**份额 + 与起点偏差百分比。
-  - id: "cross-scale-demo"
-    title: "不同量级同一图（%轴演示）"
-    etfs:
-      - code: "562910"
-        name: "高端制造ETF易方达"
-      - code: "588080"
-        name: "科创50ETF易方达"
-      - code: "512170"
-        name: "医疗ETF华宝"
-
-
-  - id: "innovative-drug"
-    title: "创新药"
-    etfs:
-      - code: "515120"
-        name: "创新药ETF易方达"
 
