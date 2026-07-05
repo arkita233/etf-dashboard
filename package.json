@@ -1,0 +1,36 @@
+{
+  "name": "etf-dashboard",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "validate-config": "tsx scripts/validate-config.ts",
+    "sync-config": "tsx scripts/sync-config.ts",
+    "fetch-data": "tsx scripts/fetch-etf-data.ts",
+    "fetch-data:init": "tsx scripts/fetch-etf-data.ts --days=365",
+    "fetch-data:reset": "tsx scripts/fetch-etf-data.ts --days=365 --reset-raw",
+    "fetch-data:aggregate": "tsx scripts/fetch-etf-data.ts --aggregate-only",
+    "mock-data": "tsx scripts/fetch-etf-data.ts --mock",
+    "data:all": "npm run validate-config && npm run sync-config && npm run fetch-data"
+  },
+  "dependencies": {
+    "echarts": "^5.5.1",
+    "echarts-for-react": "^3.0.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.2",
+    "yaml": "^2.6.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "tsx": "^4.22.4",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.10",
+    "zod": "^4.4.3"
+  }
+}

@@ -1,0 +1,153 @@
+.etf-list-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.etf-list-header {
+  margin-bottom: 0.25rem;
+}
+
+.etf-list-title {
+  margin: 0 0 0.25rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.etf-list-subtitle {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #64748b;
+}
+
+.etf-list-tabs {
+  display: inline-flex;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 4px;
+  gap: 4px;
+  align-self: flex-start;
+}
+
+.etf-tab {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0.45rem 1rem;
+  font-size: 0.9rem;
+  color: #475569;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  font-family: inherit;
+}
+
+.etf-tab:hover { background: #f1f5f9; }
+
+.etf-tab.active {
+  background: #2563eb;
+  color: #fff;
+  font-weight: 500;
+}
+
+.etf-list-state {
+  padding: 2rem 1rem;
+  text-align: center;
+  color: #475569;
+  background: #fff;
+  border: 1px dashed #cbd5e1;
+  border-radius: 8px;
+}
+
+.etf-list-state.error {
+  color: #dc2626;
+  border-color: #fecaca;
+  background: #fef2f2;
+}
+
+.etf-list-table-wrap {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: auto;
+}
+
+.etf-list-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.etf-list-table thead th {
+  text-align: left;
+  padding: 0.65rem 0.85rem;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  color: #475569;
+  font-weight: 600;
+  font-size: 0.82rem;
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+}
+
+.etf-list-table thead th.sortable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.etf-list-table thead th.sortable:hover {
+  background: #eef2ff;
+  color: #1e3a8a;
+}
+
+.etf-list-table thead th.sortable.active {
+  color: #2563eb;
+}
+
+.sort-arrow {
+  margin-left: 4px;
+  font-size: 0.85rem;
+}
+
+.etf-list-table tbody td {
+  padding: 0.6rem 0.85rem;
+  border-bottom: 1px solid #f1f5f9;
+  color: #0f172a;
+  vertical-align: middle;
+}
+
+.etf-list-table tbody tr.etf-row {
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.etf-list-table tbody tr.etf-row:hover {
+  background: #f8fafc;
+}
+
+.etf-list-table tbody tr.etf-row:focus {
+  outline: 2px solid #2563eb;
+  outline-offset: -2px;
+}
+
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.num { text-align: right; font-variant-numeric: tabular-nums; }
+.muted { color: #94a3b8; }
+.muted.error { color: #dc2626; }
+
+.change-cell {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1.15;
+}
+.change-pct { font-weight: 600; font-size: 0.85rem; }
+.change-val { font-size: 0.75rem; color: #64748b; }
+
+/* Chinese stock convention: red = up, green = down. */
+.change-cell.pos .change-pct { color: #dc2626; }
+.change-cell.neg .change-pct { color: #059669; }
+.change-cell.flat .change-pct { color: #64748b; }
