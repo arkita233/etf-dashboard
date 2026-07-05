@@ -80,7 +80,7 @@ export function ShareChart({
 
   // User-selected scale mode. Default `auto` defers to the spread heuristic
   // below. A click on the toggle bar switches to a pinned mode.
-  const [scale, setScale] = useState<ChartScale>('auto');
+  const [scale, setScale] = useState<ChartScale>('minmax');
 
   const { dates, series } = useMemo(() => aggregateEntriesSeries(refs, data), [refs, data]);
 
