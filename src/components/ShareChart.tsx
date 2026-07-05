@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import * as echarts from 'echarts/core';
 import { LineChart } from 'echarts/charts';
 import {
@@ -16,9 +16,24 @@ import type {
 import type { EtfRef, SharePoint } from '../types/config';
 import {
   aggregateEntriesSeries,
+  minMaxNormalizeSeries,
   normalizeSeriesByBaseline,
   toYiShares,
 } from '../utils/series';
+
+/**
+ * What visual scale the y axis uses. `'auto'` follows the spread heuristic
+ * (linear 亿份 when series magnitudes are within 30× of each other, `% since
+ * baseline` otherwise); the other three let the user pin a specific view.
+ */
+type ChartScale = 'auto' | 'absolute' | 'percent' | 'minmax';
+
+const SCALE_BUTTONS: { key: ChartScale; label: string; title: string }[] = [
+  { key: 'auto', label: '自动', title: '自动选择 Y 轴(满足量级跨度时采用百分比归一)' },
+  { key: 'absolute', label: '份额', title: 'Y 轴显示亿份绝对值' },
+  { key: 'percent', label: '涨跌幅%', title: 'Y 轴显示与起点的百分比变化' },
+  { key: 'minmax', label: '0-1', title: 'Y 轴固定为 0–1，每条线按自己的 [最低，最高] 归一化' },
+];
 
 echarts.use([
   LineChart,
@@ -63,13 +78,24 @@ export function ShareChart({
   const containerRef = useRef<HTMLDivElement>(null);
   const chartRef = useRef<echarts.ECharts | null>(null);
 
+  // User-selected scale mode. Default `auto` defers to the spread heuristic
+  // below. A click on the toggle bar switches to a pinned mode.
+  const [scale, setScale] = useState<ChartScale>('auto');
+
   const { dates, series } = useMemo(() => aggregateEntriesSeries(refs, data), [refs, data]);
 
   // Decide which display mode to use. We pick once per series set based on
   // the spread between the largest and smallest series' peak value. The
   // actual transformation lives in buildOption — here we just compute a
-  // boolean so the effect dependency is cheap.
+  // boolean so the effect dependency is cheap. `auto` resolves to
+  // `absolute` (linear 亿份) or `percent` based on this heuristic.
   const usePercentMode = useMemo(() => computeSeriesScaleUsePercent(series), [series]);
+
+  // Resolve the user-facing scale to one of the three render modes.
+  const effectiveScale: 'absolute' | 'percent' | 'minmax' =
+    scale === 'auto' ? (usePercentMode ? 'percent' : 'absolute')
+      : scale === 'minmax' ? 'minmax'
+        : scale;
 
   // Init chart instance once
   useEffect(() => {
@@ -118,11 +144,11 @@ export function ShareChart({
       dates,
       series,
       compact,
-      displayMode: usePercentMode ? 'percent' : 'absolute',
+      displayMode: effectiveScale,
       baselineDate: dates[0],
     });
     chart.setOption(option, true);
-  }, [title, refs, series, dates, loading, compact, usePercentMode]);
+  }, [title, refs, series, dates, loading, compact, effectiveScale]);
 
   // Re-resize on prop-driven height changes
   useEffect(() => {
@@ -136,18 +162,69 @@ export function ShareChart({
 
   return (
     <div
-      ref={containerRef}
-      className="share-chart"
+      className="share-chart-wrapper"
       style={{
+        position: 'relative',
         width: '100%',
-        height: height ? `${height}px` : `${defaultHeight}px`,
         background: '#fff',
         border: '1px solid #e2e8f0',
         borderRadius: 8,
         padding: 8,
         boxSizing: 'border-box',
       }}
-    />
+    >
+      <div
+        ref={containerRef}
+        className="share-chart"
+        style={{
+          width: '100%',
+          height: height ? `${height}px` : `${defaultHeight}px`,
+        }}
+      />
+      {/* Scale-mode toggle, anchored top-right of the chart. */}
+      <div
+        className="scale-toggle"
+        style={{
+          position: 'absolute',
+          top: 12,
+          right: 12,
+          display: 'inline-flex',
+          gap: 2,
+          padding: 2,
+          background: 'rgba(255, 255, 255, 0.92)',
+          border: '1px solid #e2e8f0',
+          borderRadius: 6,
+          fontSize: 12,
+          zIndex: 2,
+          backdropFilter: 'blur(4px)',
+          boxShadow: '0 1px 2px rgba(15, 23, 42, 0.06)',
+        }}
+      >
+        {SCALE_BUTTONS.map((b) => {
+          const active = scale === b.key;
+          return (
+            <button
+              key={b.key}
+              type="button"
+              title={b.title}
+              onClick={() => setScale(b.key)}
+              style={{
+                border: 'none',
+                background: active ? '#2563eb' : 'transparent',
+                color: active ? '#fff' : '#475569',
+                padding: '4px 10px',
+                borderRadius: 4,
+                cursor: 'pointer',
+                fontWeight: active ? 600 : 500,
+                lineHeight: 1.4,
+              }}
+            >
+              {b.label}
+            </button>
+          );
+        })}
+      </div>
+    </div>
   );
 }
 
@@ -163,7 +240,7 @@ interface BuildOptionArgs {
     aggregatedCodes?: string[];
   }[];
   compact: boolean;
-  displayMode: 'absolute' | 'log' | 'percent';
+  displayMode: 'absolute' | 'log' | 'percent' | 'minmax';
   baselineDate: string;
 }
 
@@ -241,8 +318,9 @@ function buildOption({
 }: BuildOptionArgs): EChartsCoreOption {
   // Pre-compute the per-series display payload. In absolute/log modes this
   // is just the original values (units: 亿份). In percent mode we delegate
-  // to `normalizeSeriesByBaseline` so the same helper is reusable from
-  // elsewhere (e.g. exporters, tests).
+  // to `normalizeSeriesByBaseline`. In minmax mode we delegate to
+  // `minMaxNormalizeSeries` so the same helper is reusable from elsewhere
+  // (e.g. exporters, tests).
   type DisplayItem = {
     name: string;
     code: string;
@@ -250,13 +328,18 @@ function buildOption({
     yData: number[];                   // what the yAxis actually plots
     originalValues: number[];          // raw 亿份 for tooltip rendering
     baselineValue?: number;            // present in percent mode
+    /** Per-series [min, max] in 亿份 — present in minmax mode. */
+    minValue?: number;
+    maxValue?: number;
   };
+
   const normalized =
     displayMode === 'percent'
-      ? normalizeSeriesByBaseline(
-          { dates, series },
-          { baselineDate },
-        )
+      ? normalizeSeriesByBaseline({ dates, series }, { baselineDate })
+      : null;
+  const minmaxed =
+    displayMode === 'minmax'
+      ? minMaxNormalizeSeries({ dates, series })
       : null;
 
   const display: DisplayItem[] = series.map((s, i) => {
@@ -272,6 +355,18 @@ function buildOption({
         baselineValue: n.baselineValue,
       };
     }
+    if (minmaxed) {
+      const m = minmaxed.series[i];
+      return {
+        name: s.name,
+        code: s.code,
+        aggregatedCodes: s.aggregatedCodes,
+        yData: m.points.map(([, v]) => v),
+        originalValues: m.originalPoints.map(([, v]) => v),
+        minValue: m.minValue,
+        maxValue: m.maxValue,
+      };
+    }
     return {
       name: s.name,
       code: s.code,
@@ -281,7 +376,9 @@ function buildOption({
     };
   });
 
-  const showRightAxis = displayMode !== 'percent' && displayMode !== 'log' && series.length >= 3;
+  const showRightAxis =
+    displayMode !== 'percent' && displayMode !== 'log' && displayMode !== 'minmax'
+      && series.length >= 3;
 
   // Build compact "axis title" strings: list of ETF codes (short, fits the
   // margin). The full name still appears in legend/tooltip.
@@ -314,7 +411,9 @@ function buildOption({
         displayMode === 'percent'
           ? `<div style="font-weight:600;margin-bottom:4px">${date}（与起点 {b0} 比较）</div>`
               .replace('{b0}', baselineDate)
-          : `<div style="font-weight:600;margin-bottom:4px">${date}</div>`;
+          : displayMode === 'minmax'
+            ? `<div style="font-weight:600;margin-bottom:4px">${date}（0-1 归一化）</div>`
+            : `<div style="font-weight:600;margin-bottom:4px">${date}</div>`;
       const rows = arr
         .map((p) => {
           const pp = p as { marker?: string; seriesName?: string; dataIndex?: number };
@@ -331,6 +430,11 @@ function buildOption({
             const sign = delta > 0 ? '+' : '';
             return `${pp.marker ?? ''}${pp.seriesName ?? ''}: ${actualYi.toFixed(2)} 亿份（${sign}${delta.toFixed(2)}% vs ${baselineYi.toFixed(2)}）`;
           }
+          if (displayMode === 'minmax' && item.minValue !== undefined && item.maxValue !== undefined) {
+            const span = item.maxValue - item.minValue;
+            const progress = span > 0 ? ((actualYi - item.minValue) / span) * 100 : 0;
+            return `${pp.marker ?? ''}${pp.seriesName ?? ''}: ${actualYi.toFixed(2)} 亿份（区间 [${item.minValue.toFixed(2)}, ${item.maxValue.toFixed(2)}]，归一化 ${progress.toFixed(1)}%）`;
+          }
           return `${pp.marker ?? ''}${pp.seriesName ?? ''}: ${actualYi.toFixed(2)} 亿份`;
         })
         .join('');
@@ -342,9 +446,11 @@ function buildOption({
   const baseName =
     displayMode === 'percent'
       ? `相对起点（%）` + (showRightAxis ? '' : `\n起点 ${baselineDate}`)
-      : showRightAxis
-        ? buildAxisTitle(leftIdx)
-        : '份额（亿份）';
+      : displayMode === 'minmax'
+        ? '归一化进度 (0–1)'
+        : showRightAxis
+          ? buildAxisTitle(leftIdx)
+          : '份额（亿份）';
 
   const makeYAxis = (position: 'left' | 'right', name: string): object => {
     if (displayMode === 'log') {
@@ -380,6 +486,27 @@ function buildOption({
         scale: true,
       };
     }
+    if (displayMode === 'minmax') {
+      // The whole point of this mode is a fixed, comparable scale. Lock the
+      // axis to [0, 1] and label the ticks as percentages of each series'
+      // private [min, max] range.
+      return {
+        type: 'value',
+        name,
+        nameLocation: 'middle',
+        nameGap: 60,
+        nameTextStyle: { fontSize: compact ? 10 : 11, color: '#475569' },
+        position,
+        min: 0,
+        max: 1,
+        interval: 0.25,
+        axisLabel: {
+          fontSize: compact ? 10 : 11,
+          formatter: (v: number) => `${(v * 100).toFixed(0)}%`,
+        },
+        splitLine: { show: true },
+      };
+    }
     return {
       type: 'value',
       name,
@@ -400,7 +527,6 @@ function buildOption({
   const seriesOpt: SeriesOption[] = display.map((d, i) => {
     const yAxisIndex = showRightAxis ? (i % 2) : 0;
     const color = PALETTE[i % PALETTE.length];
-    // const isAggregated = !!d.aggregatedCodes;
     return {
       name: d.name,
       type: 'line',
@@ -408,6 +534,10 @@ function buildOption({
       data: d.yData,
       showSymbol: false,
       smooth: 0.1,
+      // Aggregated-sum lines used to be drawn dashed so users could tell
+      // them apart from the underlying single-ETF lines. They're now solid
+      // (same width); only the legend + tooltip show which entries are
+      // aggregated sums.
       lineStyle: { width: 2, color },
       itemStyle: { color },
     };
@@ -419,7 +549,9 @@ function buildOption({
     legend: { top: 28, type: 'scroll' },
     grid: {
       left: 60,
-      right: displayMode === 'percent' ? 80 : showRightAxis ? 70 : 30,
+      // Reserve extra right padding in percent/minmax mode because the
+      // axis-title string is longer ("归一化进度 (0–1)" / "相对起点(%)").
+      right: displayMode === 'percent' || displayMode === 'minmax' ? 80 : showRightAxis ? 70 : 30,
       top: 70,
       bottom: 60,
       containLabel: true,
