@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-05T12:11:14.930Z",
-  "totalEtfs": 66,
+  "generatedAt": "2026-07-05T12:22:15.675Z",
+  "totalEtfs": 65,
   "etfs": [
     {
       "code": "510330",
@@ -353,14 +353,6 @@
       "firstDate": "2025-07-08",
       "lastDate": "2026-07-03",
       "latestShares": 9125445500
-    },
-    {
-      "code": "515880",
-      "name": "通信/5G合计",
-      "dataFile": "515880.json",
-      "firstDate": "2025-07-08",
-      "lastDate": "2026-07-03",
-      "latestShares": 67271774000
     },
     {
       "code": "515050",
