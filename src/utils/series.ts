@@ -184,6 +184,80 @@ export interface NormalizedSeries {
   series: NormalizedSeriesItem[];
 }
 
+/** Output of {@link minMaxNormalizeSeries}. */
+export interface MinMaxNormalizedItem {
+  name: string;
+  code: string;
+  aggregatedCodes?: string[];
+  /** Per-series [0, 1]-scaled points (date, normalized value). */
+  points: [string, number][];
+  /** Original points for tooltip rendering (in 亿份). */
+  originalPoints: [string, number][];
+  /** Per-series min (in 亿份). */
+  minValue: number;
+  /** Per-series max (in 亿份). */
+  maxValue: number;
+}
+
+export interface MinMaxNormalizedSeries {
+  dates: string[];
+  series: MinMaxNormalizedItem[];
+}
+
+/**
+ * Min-max normalize each series independently into the unit interval [0, 1].
+ *
+ * Why: when two ETFs live at very different absolute magnitudes
+ * (e.g. 2亿份 vs 800亿份) plotting them on a linear 亿份 axis makes the
+ * smaller one disappear; on a pure % axis with a single baseline the
+ * asymmetric swings can still be confusing.
+ *
+ * Min-max normalization preserves the *shape* of each series and flattens
+ * the absolute scale, so all series ride a single y-axis from 0 to 1.
+ * Trade-off: the y-axis no longer carries a unit; users must hover to see
+ * the actual 亿份 value (and the [min, max] reference range).
+ *
+ * For series whose min === max (flat data), we default to 0.5 so the line
+ * draws in the middle instead of producing NaN or DOMException.
+ */
+export function minMaxNormalizeSeries(aligned: AlignedSeries): MinMaxNormalizedSeries {
+  const { dates, series } = aligned;
+  if (dates.length === 0 || series.length === 0) {
+    return { dates, series: [] };
+  }
+
+  const out: MinMaxNormalizedItem[] = series.map((s) => {
+    let min = Infinity;
+    let max = -Infinity;
+    // Iterate the original 亿份 values for true min/max across the time
+    // range shown.
+    for (const [, v] of s.points) {
+      const yv = v / 1e8;
+      if (yv < min) min = yv;
+      if (yv > max) max = yv;
+    }
+    const original = s.points.map(([d, v]) => [d, v / 1e8] as [string, number]);
+
+    const span = max - min;
+    const points: [string, number][] =
+      span > 0
+        ? original.map(([d, yv]) => [d, (yv - min) / span])
+        : original.map(([d]) => [d, 0.5]);
+
+    return {
+      name: s.name,
+      code: s.code,
+      aggregatedCodes: s.aggregatedCodes,
+      points,
+      originalPoints: original,
+      minValue: min,
+      maxValue: max,
+    };
+  });
+
+  return { dates, series: out };
+}
+
 /**
  * Re-align each series as a percentage change from its own baseline day.
  *
