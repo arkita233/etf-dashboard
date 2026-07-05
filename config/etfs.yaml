@@ -45,6 +45,15 @@ subCharts:
       - code: ["518880","518660","518680"]
         name: "黄金合计"
 
+  - id: "TELE"
+    title: "通信"
+    etfs:
+        - code: "515050"
+          name: "通信华夏"
+        - code: "515880"
+          name: "通信国泰"
+
+        
   - id: "broad-index-summary"
     title: "宽基 ETF 同种类合计对比"
     etfs:
@@ -109,8 +118,6 @@ subCharts:
     etfs:
       - code: ["588200","512480","512760"]
         name: "半导体芯片合计"
-      - code: ["515050"]
-        name: "通信/5G合计"
       - code: ["515230","562930"]
         name: "软件/计算机合计"
       - code: ["515260","562950"]
