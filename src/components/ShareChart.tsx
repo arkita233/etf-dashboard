@@ -26,9 +26,10 @@ import {
  * (linear 亿份 when series magnitudes are within 30× of each other, `% since
  * baseline` otherwise); the other three let the user pin a specific view.
  */
-type ChartScale = 'minmax' | 'absolute' | 'percent';
+type ChartScale = 'auto' | 'absolute' | 'percent' | 'minmax';
 
 const SCALE_BUTTONS: { key: ChartScale; label: string; title: string }[] = [
+  { key: 'auto', label: '自动', title: '自动选择 Y 轴(满足量级跨度时采用百分比归一)' },
   { key: 'absolute', label: '份额', title: 'Y 轴显示亿份绝对值' },
   { key: 'percent', label: '涨跌幅%', title: 'Y 轴显示与起点的百分比变化' },
   { key: 'minmax', label: '0-1', title: 'Y 轴固定为 0–1，每条线按自己的 [最低，最高] 归一化' },
@@ -79,7 +80,7 @@ export function ShareChart({
 
   // User-selected scale mode. Default `auto` defers to the spread heuristic
   // below. A click on the toggle bar switches to a pinned mode.
-  const [scale, setScale] = useState<ChartScale>('minmax');
+  const [scale, setScale] = useState<ChartScale>('auto');
 
   const { dates, series } = useMemo(() => aggregateEntriesSeries(refs, data), [refs, data]);
 
