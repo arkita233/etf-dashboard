@@ -45,7 +45,7 @@ subCharts:
       - code: ["518880","518660","518680"]
         name: "黄金合计"
 
-  - id: "TELE"
+  - id: "tele"
     title: "通信"
     etfs:
         - code: "515050"
