@@ -17,7 +17,7 @@ on:
       days:
         description: '回溯天数（覆盖默认）'
         required: false
-        default: '180'
+        default: '360'
 
 # 权限：让 workflow 可以写 pages、用 OIDC 部署、以及 push 数据
 permissions:
