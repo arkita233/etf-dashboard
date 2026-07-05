@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-05T12:22:15.675Z",
-  "totalEtfs": 65,
+  "generatedAt": "2026-07-05T12:27:43.806Z",
+  "totalEtfs": 66,
   "etfs": [
     {
       "code": "510330",
@@ -105,6 +105,22 @@
       "firstDate": "2025-07-08",
       "lastDate": "2026-07-03",
       "latestShares": 768169500
+    },
+    {
+      "code": "515050",
+      "name": "通信华夏",
+      "dataFile": "515050.json",
+      "firstDate": "2025-07-08",
+      "lastDate": "2026-07-03",
+      "latestShares": 18059205400
+    },
+    {
+      "code": "515880",
+      "name": "通信国泰",
+      "dataFile": "515880.json",
+      "firstDate": "2025-07-08",
+      "lastDate": "2026-07-03",
+      "latestShares": 67271774000
     },
     {
       "code": "510300",
@@ -353,14 +369,6 @@
       "firstDate": "2025-07-08",
       "lastDate": "2026-07-03",
       "latestShares": 9125445500
-    },
-    {
-      "code": "515050",
-      "name": "通信/5G合计",
-      "dataFile": "515050.json",
-      "firstDate": "2025-07-08",
-      "lastDate": "2026-07-03",
-      "latestShares": 18059205400
     },
     {
       "code": "515230",

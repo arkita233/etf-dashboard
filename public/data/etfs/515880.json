@@ -1,6 +1,6 @@
 {
   "code": "515880",
-  "name": "通信/5G合计",
+  "name": "通信国泰",
   "shares": [
     {
       "date": "2025-07-08",
@@ -4571,7 +4571,7 @@
   ],
   "meta": {
     "source": "SSE",
-    "fetchedAt": "2026-07-05T12:11:13.185Z",
+    "fetchedAt": "2026-07-05T12:27:39.470Z",
     "note": "real SSE API data, sliced from raw cache",
     "isMock": false
   }
