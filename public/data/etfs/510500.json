@@ -1,6 +1,6 @@
 {
   "code": "510500",
-  "name": "宽基合计（虚线）",
+  "name": "中证500ETF南方",
   "shares": [
     {
       "date": "2026-01-06",
@@ -2234,7 +2234,7 @@
   ],
   "meta": {
     "source": "SSE",
-    "fetchedAt": "2026-07-05T11:02:34.891Z",
+    "fetchedAt": "2026-07-05T11:05:27.898Z",
     "note": "real SSE API data, sliced from raw cache",
     "isMock": false
   }
