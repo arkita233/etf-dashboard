@@ -977,6 +977,10 @@
     {
       "date": "2026-07-09",
       "value": 103118900
+    },
+    {
+      "date": "2026-07-10",
+      "value": 102818900
     }
   ],
   "dailyChange": [
@@ -2199,6 +2203,11 @@
       "date": "2026-07-09",
       "value": 0,
       "pct": 0
+    },
+    {
+      "date": "2026-07-10",
+      "value": -300000,
+      "pct": -0.2909
     }
   ],
   "weeklyChange": [
@@ -3421,6 +3430,11 @@
       "date": "2026-07-09",
       "value": 0,
       "pct": 0
+    },
+    {
+      "date": "2026-07-10",
+      "value": -1500000,
+      "pct": -1.4379
     }
   ],
   "monthlyChange": [
@@ -4643,11 +4657,16 @@
       "date": "2026-07-09",
       "value": -2400000,
       "pct": -2.2745
+    },
+    {
+      "date": "2026-07-10",
+      "value": -3300000,
+      "pct": -3.1097
     }
   ],
   "meta": {
     "source": "SSE",
-    "fetchedAt": "2026-07-09T19:46:42.732Z",
+    "fetchedAt": "2026-07-10T19:27:25.151Z",
     "note": "real SSE API data, sliced from raw cache",
     "isMock": false
   }
