@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-03T19:36:27.224Z",
+  "generatedAt": "2026-08-04T19:37:37.087Z",
   "totalEtfs": 66,
   "etfs": [
     {
@@ -7,151 +7,151 @@
       "name": "沪深300ETF华夏",
       "dataFile": "510330.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 8785149800
+      "lastDate": "2026-08-04",
+      "latestShares": 8762649800
     },
     {
       "code": "510050",
       "name": "上证50ETF华夏",
       "dataFile": "510050.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 7677666800.000001
+      "lastDate": "2026-08-04",
+      "latestShares": 7635366800.000001
     },
     {
       "code": "560010",
       "name": "中证1000ETF广发",
       "dataFile": "560010.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 2638621700
+      "lastDate": "2026-08-04",
+      "latestShares": 2728621700
     },
     {
       "code": "510500",
       "name": "中证500ETF南方",
       "dataFile": "510500.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 6311768600
+      "lastDate": "2026-08-04",
+      "latestShares": 6252968600
     },
     {
       "code": "588080",
       "name": "科创50ETF易方达",
       "dataFile": "588080.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 25030628100
+      "lastDate": "2026-08-04",
+      "latestShares": 24799628100
     },
     {
       "code": "510180",
       "name": "上证180ETF华安",
       "dataFile": "510180.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 4429057700
+      "lastDate": "2026-08-04",
+      "latestShares": 4429557700
     },
     {
       "code": "511090",
       "name": "30年国债ETF",
       "dataFile": "511090.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 274168100
+      "lastDate": "2026-08-04",
+      "latestShares": 273288100
     },
     {
       "code": "510880",
       "name": "红利ETF华泰柏瑞",
       "dataFile": "510880.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 6876675699.999999
+      "lastDate": "2026-08-04",
+      "latestShares": 6795175699.999999
     },
     {
       "code": "512890",
       "name": "红利低波ETF华泰柏瑞",
       "dataFile": "512890.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 28845110800
+      "lastDate": "2026-08-04",
+      "latestShares": 28580110800
     },
     {
       "code": "515080",
       "name": "中证红利ETF招商",
       "dataFile": "515080.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 7724148900
+      "lastDate": "2026-08-04",
+      "latestShares": 7701148900
     },
     {
       "code": "518880",
       "name": "黄金合计",
       "dataFile": "518880.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 10975840800
+      "lastDate": "2026-08-04",
+      "latestShares": 11009340800
     },
     {
       "code": "518660",
       "name": "黄金合计",
       "dataFile": "518660.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 949352700
+      "lastDate": "2026-08-04",
+      "latestShares": 948152700
     },
     {
       "code": "518680",
       "name": "黄金合计",
       "dataFile": "518680.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 798769500
+      "lastDate": "2026-08-04",
+      "latestShares": 799369500
     },
     {
       "code": "515050",
       "name": "通信华夏",
       "dataFile": "515050.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 17967205400
+      "lastDate": "2026-08-04",
+      "latestShares": 17737205400
     },
     {
       "code": "515880",
       "name": "通信国泰",
       "dataFile": "515880.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 65329774000
+      "lastDate": "2026-08-04",
+      "latestShares": 63087774000
     },
     {
       "code": "510300",
       "name": "沪深300系合计",
       "dataFile": "510300.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 27058087700
+      "lastDate": "2026-08-04",
+      "latestShares": 26530687700
     },
     {
       "code": "510310",
       "name": "沪深300系合计",
       "dataFile": "510310.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 11796044000
+      "lastDate": "2026-08-04",
+      "latestShares": 11716844000
     },
     {
       "code": "510360",
       "name": "沪深300系合计",
       "dataFile": "510360.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 1907381200
+      "lastDate": "2026-08-04",
+      "latestShares": 1883381200
     },
     {
       "code": "510380",
       "name": "沪深300系合计",
       "dataFile": "510380.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
+      "lastDate": "2026-08-04",
       "latestShares": 1488802400
     },
     {
@@ -159,23 +159,23 @@
       "name": "科创50系合计",
       "dataFile": "588060.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 7831140000
+      "lastDate": "2026-08-04",
+      "latestShares": 7681140000
     },
     {
       "code": "510100",
       "name": "上证50系合计",
       "dataFile": "510100.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 1036406799.9999999
+      "lastDate": "2026-08-04",
+      "latestShares": 1042706799.9999999
     },
     {
       "code": "510710",
       "name": "上证50系合计",
       "dataFile": "510710.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
+      "lastDate": "2026-08-04",
       "latestShares": 106118900
     },
     {
@@ -183,31 +183,31 @@
       "name": "中证500系合计",
       "dataFile": "512500.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 1988808800
+      "lastDate": "2026-08-04",
+      "latestShares": 1995208800
     },
     {
       "code": "510580",
       "name": "中证500系合计",
       "dataFile": "510580.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 1163768300
+      "lastDate": "2026-08-04",
+      "latestShares": 1175768300
     },
     {
       "code": "510510",
       "name": "中证500系合计",
       "dataFile": "510510.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 971038300
+      "lastDate": "2026-08-04",
+      "latestShares": 975038300
     },
     {
       "code": "510590",
       "name": "中证500系合计",
       "dataFile": "510590.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
+      "lastDate": "2026-08-04",
       "latestShares": 115586100
     },
     {
@@ -215,320 +215,320 @@
       "name": "证券/券商合计",
       "dataFile": "512000.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 75712235400
+      "lastDate": "2026-08-04",
+      "latestShares": 75808235400
     },
     {
       "code": "512880",
       "name": "证券/券商合计",
       "dataFile": "512880.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 57029291500
+      "lastDate": "2026-08-04",
+      "latestShares": 57470291500
     },
     {
       "code": "515010",
       "name": "证券/券商合计",
       "dataFile": "515010.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 2107271600
+      "lastDate": "2026-08-04",
+      "latestShares": 2077771600
     },
     {
       "code": "515180",
       "name": "红利/高股息合计",
       "dataFile": "515180.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 13533637000
+      "lastDate": "2026-08-04",
+      "latestShares": 13313637000
     },
     {
       "code": "562060",
       "name": "红利/高股息合计",
       "dataFile": "562060.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 5452792600
+      "lastDate": "2026-08-04",
+      "latestShares": 5461792600
     },
     {
       "code": "512070",
       "name": "银行保险合计",
       "dataFile": "512070.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 18943479700
+      "lastDate": "2026-08-04",
+      "latestShares": 18842479700
     },
     {
       "code": "512800",
       "name": "银行保险合计",
       "dataFile": "512800.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 12965079900
+      "lastDate": "2026-08-04",
+      "latestShares": 12316479900
     },
     {
       "code": "516310",
       "name": "银行保险合计",
       "dataFile": "516310.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 1799958500
+      "lastDate": "2026-08-04",
+      "latestShares": 1795158500
     },
     {
       "code": "512170",
       "name": "医药医疗合计",
       "dataFile": "512170.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 79126820500
+      "lastDate": "2026-08-04",
+      "latestShares": 78506820500
     },
     {
       "code": "512010",
       "name": "医药医疗合计",
       "dataFile": "512010.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 45795694900
+      "lastDate": "2026-08-04",
+      "latestShares": 45042694900
     },
     {
       "code": "516820",
       "name": "医药医疗合计",
       "dataFile": "516820.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 5086415200
+      "lastDate": "2026-08-04",
+      "latestShares": 5078415200
     },
     {
       "code": "512690",
       "name": "消费合计",
       "dataFile": "512690.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 32879950200
+      "lastDate": "2026-08-04",
+      "latestShares": 32600950200
     },
     {
       "code": "512600",
       "name": "消费合计",
       "dataFile": "512600.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 1722056099.9999998
+      "lastDate": "2026-08-04",
+      "latestShares": 1748056099.9999998
     },
     {
       "code": "516130",
       "name": "消费合计",
       "dataFile": "516130.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 1548890000
+      "lastDate": "2026-08-04",
+      "latestShares": 1553890000
     },
     {
       "code": "515120",
       "name": "创新药合计",
       "dataFile": "515120.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 19191993600
+      "lastDate": "2026-08-04",
+      "latestShares": 18860993600
     },
     {
       "code": "517110",
       "name": "创新药合计",
       "dataFile": "517110.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 1513098500
+      "lastDate": "2026-08-04",
+      "latestShares": 1495098500
     },
     {
       "code": "517120",
       "name": "创新药合计",
       "dataFile": "517120.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 656966400
+      "lastDate": "2026-08-04",
+      "latestShares": 648966400
     },
     {
       "code": "588200",
       "name": "半导体芯片合计",
       "dataFile": "588200.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 44584184300
+      "lastDate": "2026-08-04",
+      "latestShares": 43792184300
     },
     {
       "code": "512480",
       "name": "半导体芯片合计",
       "dataFile": "512480.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 20298007200
+      "lastDate": "2026-08-04",
+      "latestShares": 19682007200
     },
     {
       "code": "512760",
       "name": "半导体芯片合计",
       "dataFile": "512760.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 9809445500
+      "lastDate": "2026-08-04",
+      "latestShares": 9711445500
     },
     {
       "code": "515230",
       "name": "软件/计算机合计",
       "dataFile": "515230.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 7566690900
+      "lastDate": "2026-08-04",
+      "latestShares": 7619690900
     },
     {
       "code": "562930",
       "name": "软件/计算机合计",
       "dataFile": "562930.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 1539437000
+      "lastDate": "2026-08-04",
+      "latestShares": 1582437000
     },
     {
       "code": "515260",
       "name": "电子合计",
       "dataFile": "515260.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 882568400
+      "lastDate": "2026-08-04",
+      "latestShares": 878568400
     },
     {
       "code": "562950",
       "name": "电子合计",
       "dataFile": "562950.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 944258300
+      "lastDate": "2026-08-04",
+      "latestShares": 941258300
     },
     {
       "code": "512400",
       "name": "有色金属合计",
       "dataFile": "512400.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 12922539000
+      "lastDate": "2026-08-04",
+      "latestShares": 13019539000
     },
     {
       "code": "516150",
       "name": "有色金属合计",
       "dataFile": "516150.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 3711577000
+      "lastDate": "2026-08-04",
+      "latestShares": 3712577000
     },
     {
       "code": "516120",
       "name": "化工合计",
       "dataFile": "516120.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 5338082000
+      "lastDate": "2026-08-04",
+      "latestShares": 5337582000
     },
     {
       "code": "516020",
       "name": "化工合计",
       "dataFile": "516020.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 4004326200
+      "lastDate": "2026-08-04",
+      "latestShares": 3998826200
     },
     {
       "code": "516220",
       "name": "化工合计",
       "dataFile": "516220.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 274170000
+      "lastDate": "2026-08-04",
+      "latestShares": 272170000
     },
     {
       "code": "515220",
       "name": "煤炭合计",
       "dataFile": "515220.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 11604676900
+      "lastDate": "2026-08-04",
+      "latestShares": 11200176900
     },
     {
       "code": "516160",
       "name": "新能源合计",
       "dataFile": "516160.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 1539642000
+      "lastDate": "2026-08-04",
+      "latestShares": 1579642000
     },
     {
       "code": "515030",
       "name": "新能源合计",
       "dataFile": "515030.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 1589384000
+      "lastDate": "2026-08-04",
+      "latestShares": 1604384000
     },
     {
       "code": "516090",
       "name": "新能源合计",
       "dataFile": "516090.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 1738844800
+      "lastDate": "2026-08-04",
+      "latestShares": 1740844800
     },
     {
       "code": "561560",
       "name": "电力/公用事业合计",
       "dataFile": "561560.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 2274124200
+      "lastDate": "2026-08-04",
+      "latestShares": 2270624200
     },
     {
       "code": "560550",
       "name": "电力/公用事业合计",
       "dataFile": "560550.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 127597400
+      "lastDate": "2026-08-04",
+      "latestShares": 125597400
     },
     {
       "code": "512660",
       "name": "军工合计",
       "dataFile": "512660.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 5915080000
+      "lastDate": "2026-08-04",
+      "latestShares": 5870080000
     },
     {
       "code": "512680",
       "name": "军工合计",
       "dataFile": "512680.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 3182530100
+      "lastDate": "2026-08-04",
+      "latestShares": 3181730100
     },
     {
       "code": "512670",
       "name": "军工合计",
       "dataFile": "512670.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 2278652600
+      "lastDate": "2026-08-04",
+      "latestShares": 2241652600
     },
     {
       "code": "562910",
       "name": "高端制造合计",
       "dataFile": "562910.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 348227300.00000006
+      "lastDate": "2026-08-04",
+      "latestShares": 315227300
     },
     {
       "code": "516320",
       "name": "高端制造合计",
       "dataFile": "516320.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-08-03",
-      "latestShares": 89589300
+      "lastDate": "2026-08-04",
+      "latestShares": 88589300
     }
   ]
 }
