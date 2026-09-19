@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-19T10:57:07.651Z",
-  "totalEtfs": 62,
+  "generatedAt": "2026-09-19T11:18:25.959Z",
+  "totalEtfs": 60,
   "etfs": [
     {
       "code": "510300",
@@ -251,28 +251,20 @@
       "latestShares": 111189300
     },
     {
-      "code": "515070",
-      "name": "人工智能ETF华夏",
-      "dataFile": "515070.json",
-      "firstDate": "2025-07-08",
-      "lastDate": "2026-09-18",
-      "latestShares": 7548940400
-    },
-    {
-      "code": "515980",
-      "name": "人工智能ETF华富",
-      "dataFile": "515980.json",
-      "firstDate": "2025-07-08",
-      "lastDate": "2026-09-18",
-      "latestShares": 6311129000
-    },
-    {
       "code": "515230",
       "name": "软件ETF国泰",
       "dataFile": "515230.json",
       "firstDate": "2025-07-08",
       "lastDate": "2026-09-18",
       "latestShares": 8030690900
+    },
+    {
+      "code": "562930",
+      "name": "软件ETF易方达",
+      "dataFile": "562930.json",
+      "firstDate": "2025-07-08",
+      "lastDate": "2026-09-18",
+      "latestShares": 1712437000
     },
     {
       "code": "512660",
@@ -305,14 +297,6 @@
       "firstDate": "2025-07-08",
       "lastDate": "2026-09-18",
       "latestShares": 18364187300
-    },
-    {
-      "code": "560280",
-      "name": "工程机械ETF广发",
-      "dataFile": "560280.json",
-      "firstDate": "2025-07-08",
-      "lastDate": "2026-09-18",
-      "latestShares": 1374752000
     },
     {
       "code": "560770",

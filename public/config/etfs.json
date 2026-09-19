@@ -135,7 +135,7 @@
     },
     {
       "id": "semiconductor-electronics",
-      "title": "半导体与电子 ETF 份额追踪",
+      "title": "半导体 ETF 份额追踪",
       "etfs": [
         {
           "code": "588200",
@@ -161,7 +161,7 @@
     },
     {
       "id": "communications",
-      "title": "通信 ETF 份额追踪",
+      "title": "通信设备与电信 ETF 份额追踪",
       "etfs": [
         {
           "code": "515880",
@@ -178,20 +178,16 @@
       ]
     },
     {
-      "id": "software-ai",
-      "title": "软件与人工智能 ETF 份额追踪",
+      "id": "software",
+      "title": "软件 ETF 份额追踪",
       "etfs": [
-        {
-          "code": "515070",
-          "name": "人工智能ETF华夏"
-        },
-        {
-          "code": "515980",
-          "name": "人工智能ETF华富"
-        },
         {
           "code": "515230",
           "name": "软件ETF国泰"
+        },
+        {
+          "code": "562930",
+          "name": "软件ETF易方达"
         }
       ]
     },
@@ -214,16 +210,12 @@
       ]
     },
     {
-      "id": "robotics-machinery",
-      "title": "机器人与机械装备 ETF 份额追踪",
+      "id": "robotics",
+      "title": "机器人 ETF 份额追踪",
       "etfs": [
         {
           "code": "562500",
           "name": "机器人ETF华夏"
-        },
-        {
-          "code": "560280",
-          "name": "工程机械ETF广发"
         },
         {
           "code": "560770",
