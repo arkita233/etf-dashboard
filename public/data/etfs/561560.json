@@ -1,6 +1,6 @@
 {
   "code": "561560",
-  "name": "电力/公用事业合计",
+  "name": "电力ETF华泰柏瑞",
   "shares": [
     {
       "date": "2025-07-08",
@@ -5578,7 +5578,7 @@
   ],
   "meta": {
     "source": "SSE",
-    "fetchedAt": "2026-09-18T20:29:01.500Z",
+    "fetchedAt": "2026-09-19T10:57:06.727Z",
     "note": "real SSE API data, sliced from raw cache",
     "isMock": false
   }

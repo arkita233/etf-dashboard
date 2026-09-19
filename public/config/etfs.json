@@ -44,8 +44,26 @@
       ]
     },
     {
-      "id": "financial",
-      "title": "金融 ETF 份额追踪",
+      "id": "banks",
+      "title": "银行 ETF 份额追踪",
+      "etfs": [
+        {
+          "code": "512800",
+          "name": "银行ETF华宝"
+        },
+        {
+          "code": "515290",
+          "name": "银行ETF天弘"
+        },
+        {
+          "code": "516310",
+          "name": "银行ETF易方达"
+        }
+      ]
+    },
+    {
+      "id": "securities-insurance",
+      "title": "券商与非银金融 ETF 份额追踪",
       "etfs": [
         {
           "code": "512880",
@@ -58,32 +76,42 @@
         {
           "code": "512070",
           "name": "证券保险ETF易方达"
-        },
-        {
-          "code": "512800",
-          "name": "银行ETF华宝"
-        },
-        {
-          "code": "512900",
-          "name": "证券ETF南方"
         }
       ]
     },
     {
-      "id": "healthcare",
-      "title": "医药医疗 ETF 份额追踪",
+      "id": "innovative-drugs",
+      "title": "创新药 ETF 份额追踪",
+      "etfs": [
+        {
+          "code": "515120",
+          "name": "创新药ETF广发"
+        },
+        {
+          "code": "589720",
+          "name": "科创创新药ETF国泰"
+        },
+        {
+          "code": "516080",
+          "name": "创新药ETF易方达"
+        }
+      ]
+    },
+    {
+      "id": "medical-services",
+      "title": "医疗服务与器械 ETF 份额追踪",
       "etfs": [
         {
           "code": "512170",
           "name": "医疗ETF华宝"
         },
         {
-          "code": "512010",
-          "name": "医药ETF易方达"
+          "code": "560260",
+          "name": "医疗ETF广发"
         },
         {
-          "code": "515120",
-          "name": "创新药ETF广发"
+          "code": "562600",
+          "name": "医疗器械ETF华夏"
         }
       ]
     },
@@ -106,16 +134,12 @@
       ]
     },
     {
-      "id": "technology",
-      "title": "科技 ETF 份额追踪",
+      "id": "semiconductor-electronics",
+      "title": "半导体与电子 ETF 份额追踪",
       "etfs": [
         {
           "code": "588200",
           "name": "科创芯片ETF嘉实"
-        },
-        {
-          "code": "515880",
-          "name": "通信ETF国泰"
         },
         {
           "code": "588170",
@@ -126,19 +150,55 @@
           "name": "半导体ETF国联安"
         },
         {
-          "code": "515050",
-          "name": "通信ETF华夏"
+          "code": "560780",
+          "name": "半导体设备ETF广发"
+        },
+        {
+          "code": "588710",
+          "name": "科创半导体设备ETF华泰柏瑞"
         }
       ]
     },
     {
-      "id": "manufacturing",
-      "title": "军工与先进制造 ETF 份额追踪",
+      "id": "communications",
+      "title": "通信 ETF 份额追踪",
       "etfs": [
         {
-          "code": "562500",
-          "name": "机器人ETF华夏"
+          "code": "515880",
+          "name": "通信ETF国泰"
         },
+        {
+          "code": "515050",
+          "name": "通信ETF华夏"
+        },
+        {
+          "code": "563010",
+          "name": "电信ETF易方达"
+        }
+      ]
+    },
+    {
+      "id": "software-ai",
+      "title": "软件与人工智能 ETF 份额追踪",
+      "etfs": [
+        {
+          "code": "515070",
+          "name": "人工智能ETF华夏"
+        },
+        {
+          "code": "515980",
+          "name": "人工智能ETF华富"
+        },
+        {
+          "code": "515230",
+          "name": "软件ETF国泰"
+        }
+      ]
+    },
+    {
+      "id": "defense",
+      "title": "国防军工 ETF 份额追踪",
+      "etfs": [
         {
           "code": "512660",
           "name": "军工ETF国泰"
@@ -146,12 +206,34 @@
         {
           "code": "512710",
           "name": "军工龙头ETF富国"
+        },
+        {
+          "code": "512680",
+          "name": "军工ETF广发"
         }
       ]
     },
     {
-      "id": "cyclical-resources",
-      "title": "周期资源与地产基建 ETF 份额追踪",
+      "id": "robotics-machinery",
+      "title": "机器人与机械装备 ETF 份额追踪",
+      "etfs": [
+        {
+          "code": "562500",
+          "name": "机器人ETF华夏"
+        },
+        {
+          "code": "560280",
+          "name": "工程机械ETF广发"
+        },
+        {
+          "code": "560770",
+          "name": "机器人ETF招商"
+        }
+      ]
+    },
+    {
+      "id": "metals",
+      "title": "有色金属与黄金股 ETF 份额追踪",
       "etfs": [
         {
           "code": "512400",
@@ -162,26 +244,62 @@
           "name": "黄金股ETF永赢"
         },
         {
-          "code": "515220",
-          "name": "煤炭ETF国泰"
+          "code": "516650",
+          "name": "有色金属ETF华夏"
         }
       ]
     },
     {
-      "id": "energy-power",
-      "title": "新能源与电力产业链 ETF 份额追踪",
+      "id": "fossil-energy",
+      "title": "煤炭与油气 ETF 份额追踪",
       "etfs": [
         {
-          "code": "515790",
-          "name": "光伏ETF华泰柏瑞"
+          "code": "515220",
+          "name": "煤炭ETF国泰"
         },
         {
-          "code": "561380",
-          "name": "电网设备ETF国泰"
+          "code": "561360",
+          "name": "石油ETF国泰"
         },
         {
-          "code": "516160",
-          "name": "新能源ETF南方"
+          "code": "516570",
+          "name": "石化ETF易方达"
+        }
+      ]
+    },
+    {
+      "id": "battery-ev",
+      "title": "电池与新能源车 ETF 份额追踪",
+      "etfs": [
+        {
+          "code": "561910",
+          "name": "电池ETF招商"
+        },
+        {
+          "code": "515030",
+          "name": "新能源车ETF华夏"
+        },
+        {
+          "code": "561160",
+          "name": "电池ETF富国"
+        }
+      ]
+    },
+    {
+      "id": "power-utilities",
+      "title": "电力与绿电 ETF 份额追踪",
+      "etfs": [
+        {
+          "code": "561560",
+          "name": "电力ETF华泰柏瑞"
+        },
+        {
+          "code": "562550",
+          "name": "绿电ETF华夏"
+        },
+        {
+          "code": "562960",
+          "name": "绿色电力ETF易方达"
         }
       ]
     },
@@ -212,60 +330,16 @@
       ]
     },
     {
-      "id": "global-equity",
-      "title": "海外及跨国股票 ETF 份额追踪",
+      "id": "long-treasury",
+      "title": "超长期国债 ETF 份额追踪",
       "etfs": [
         {
-          "code": "513500",
-          "name": "标普500ETF博时"
+          "code": "511090",
+          "name": "30年国债ETF鹏扬"
         },
         {
-          "code": "513100",
-          "name": "纳指ETF国泰"
-        },
-        {
-          "code": "513300",
-          "name": "纳斯达克ETF华夏"
-        }
-      ]
-    },
-    {
-      "id": "plain-bond",
-      "title": "普通债券 ETF 份额追踪",
-      "etfs": [
-        {
-          "code": "511360",
-          "name": "短融ETF海富通"
-        },
-        {
-          "code": "511220",
-          "name": "城投债ETF海富通"
-        },
-        {
-          "code": "511520",
-          "name": "政金债ETF富国"
-        },
-        {
-          "code": "511030",
-          "name": "公司债ETF平安"
-        },
-        {
-          "code": "511110",
-          "name": "公司债ETF易方达"
-        }
-      ]
-    },
-    {
-      "id": "convertible-bond",
-      "title": "可转债 ETF 份额追踪",
-      "etfs": [
-        {
-          "code": "511380",
-          "name": "可转债ETF博时"
-        },
-        {
-          "code": "511180",
-          "name": "可转债ETF海富通"
+          "code": "511130",
+          "name": "30年国债ETF博时"
         }
       ]
     },
@@ -284,20 +358,6 @@
         {
           "code": "518850",
           "name": "黄金ETF华夏"
-        }
-      ]
-    },
-    {
-      "id": "cash",
-      "title": "货币现金 ETF 份额追踪",
-      "etfs": [
-        {
-          "code": "511880",
-          "name": "银华日利ETF"
-        },
-        {
-          "code": "511990",
-          "name": "华宝添益ETF"
         }
       ]
     }

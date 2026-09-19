@@ -1,6 +1,6 @@
 {
   "code": "511090",
-  "name": "30年国债ETF",
+  "name": "30年国债ETF鹏扬",
   "shares": [
     {
       "date": "2025-07-08",
@@ -5578,7 +5578,7 @@
   ],
   "meta": {
     "source": "SSE",
-    "fetchedAt": "2026-09-18T20:28:55.804Z",
+    "fetchedAt": "2026-09-19T10:57:07.343Z",
     "note": "real SSE API data, sliced from raw cache",
     "isMock": false
   }
