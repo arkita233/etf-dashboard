@@ -1,6 +1,6 @@
 {
   "code": "515220",
-  "name": "煤炭合计",
+  "name": "煤炭ETF国泰",
   "shares": [
     {
       "date": "2025-07-08",
@@ -5578,7 +5578,7 @@
   ],
   "meta": {
     "source": "SSE",
-    "fetchedAt": "2026-09-18T20:29:01.068Z",
+    "fetchedAt": "2026-09-19T10:39:05.267Z",
     "note": "real SSE API data, sliced from raw cache",
     "isMock": false
   }

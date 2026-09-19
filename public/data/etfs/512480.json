@@ -1,6 +1,6 @@
 {
   "code": "512480",
-  "name": "半导体芯片合计",
+  "name": "半导体ETF国联安",
   "shares": [
     {
       "date": "2025-07-08",
@@ -5578,7 +5578,7 @@
   ],
   "meta": {
     "source": "SSE",
-    "fetchedAt": "2026-09-18T20:28:59.888Z",
+    "fetchedAt": "2026-09-19T10:39:04.538Z",
     "note": "real SSE API data, sliced from raw cache",
     "isMock": false
   }

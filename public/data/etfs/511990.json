@@ -1,0 +1,14 @@
+{
+  "code": "511990",
+  "name": "华宝添益ETF",
+  "shares": [],
+  "dailyChange": [],
+  "weeklyChange": [],
+  "monthlyChange": [],
+  "meta": {
+    "source": "mock",
+    "fetchedAt": "2026-09-19T10:39:07.671Z",
+    "note": "raw 数据中无此 code",
+    "isMock": true
+  }
+}

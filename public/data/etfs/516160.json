@@ -1,6 +1,6 @@
 {
   "code": "516160",
-  "name": "新能源合计",
+  "name": "新能源ETF南方",
   "shares": [
     {
       "date": "2025-07-08",
@@ -5578,7 +5578,7 @@
   ],
   "meta": {
     "source": "SSE",
-    "fetchedAt": "2026-09-18T20:29:01.175Z",
+    "fetchedAt": "2026-09-19T10:39:05.581Z",
     "note": "real SSE API data, sliced from raw cache",
     "isMock": false
   }

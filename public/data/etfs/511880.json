@@ -1,0 +1,14 @@
+{
+  "code": "511880",
+  "name": "银华日利ETF",
+  "shares": [],
+  "dailyChange": [],
+  "weeklyChange": [],
+  "monthlyChange": [],
+  "meta": {
+    "source": "mock",
+    "fetchedAt": "2026-09-19T10:39:07.567Z",
+    "note": "raw 数据中无此 code",
+    "isMock": true
+  }
+}

@@ -1,6 +1,6 @@
 {
   "code": "510310",
-  "name": "沪深300系合计",
+  "name": "沪深300ETF易方达",
   "shares": [
     {
       "date": "2025-07-08",
@@ -5578,7 +5578,7 @@
   ],
   "meta": {
     "source": "SSE",
-    "fetchedAt": "2026-09-18T20:28:56.894Z",
+    "fetchedAt": "2026-09-19T10:39:02.393Z",
     "note": "real SSE API data, sliced from raw cache",
     "isMock": false
   }

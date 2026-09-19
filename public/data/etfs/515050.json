@@ -1,6 +1,6 @@
 {
   "code": "515050",
-  "name": "通信华夏",
+  "name": "通信ETF华夏",
   "shares": [
     {
       "date": "2025-07-08",
@@ -5578,7 +5578,7 @@
   ],
   "meta": {
     "source": "SSE",
-    "fetchedAt": "2026-09-18T20:28:56.574Z",
+    "fetchedAt": "2026-09-19T10:39:04.643Z",
     "note": "real SSE API data, sliced from raw cache",
     "isMock": false
   }
