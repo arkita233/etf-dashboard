@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T20:56:51.082Z",
+  "generatedAt": "2026-09-23T21:09:31.404Z",
   "totalEtfs": 60,
   "etfs": [
     {
@@ -7,151 +7,151 @@
       "name": "沪深300ETF华泰柏瑞",
       "dataFile": "510300.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 23737987700
+      "lastDate": "2026-09-23",
+      "latestShares": 24005287700
     },
     {
       "code": "588000",
       "name": "科创50ETF华夏",
       "dataFile": "588000.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 54374668200
+      "lastDate": "2026-09-23",
+      "latestShares": 54290668200
     },
     {
       "code": "510310",
       "name": "沪深300ETF易方达",
       "dataFile": "510310.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 11456744000
+      "lastDate": "2026-09-23",
+      "latestShares": 11806844000
     },
     {
       "code": "510500",
       "name": "中证500ETF南方",
       "dataFile": "510500.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 5718568600
+      "lastDate": "2026-09-23",
+      "latestShares": 5764968600
     },
     {
       "code": "588080",
       "name": "科创50ETF易方达",
       "dataFile": "588080.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 25780628100
+      "lastDate": "2026-09-23",
+      "latestShares": 25711628100
     },
     {
       "code": "512890",
       "name": "红利低波ETF华泰柏瑞",
       "dataFile": "512890.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 25813110800
+      "lastDate": "2026-09-23",
+      "latestShares": 25792110800
     },
     {
       "code": "515450",
       "name": "红利低波50ETF南方",
       "dataFile": "515450.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 14552835000
+      "lastDate": "2026-09-23",
+      "latestShares": 14569835000
     },
     {
       "code": "510880",
       "name": "红利ETF华泰柏瑞",
       "dataFile": "510880.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 5633175699.999999
+      "lastDate": "2026-09-23",
+      "latestShares": 5615175699.999999
     },
     {
       "code": "512800",
       "name": "银行ETF华宝",
       "dataFile": "512800.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 11663679900
+      "lastDate": "2026-09-23",
+      "latestShares": 11631879900
     },
     {
       "code": "515290",
       "name": "银行ETF天弘",
       "dataFile": "515290.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 2441272900
+      "lastDate": "2026-09-23",
+      "latestShares": 2437972900
     },
     {
       "code": "516310",
       "name": "银行ETF易方达",
       "dataFile": "516310.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 1652958500
+      "lastDate": "2026-09-23",
+      "latestShares": 1655058500
     },
     {
       "code": "512880",
       "name": "证券ETF国泰",
       "dataFile": "512880.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 56374291500
+      "lastDate": "2026-09-23",
+      "latestShares": 56286291500
     },
     {
       "code": "512000",
       "name": "券商ETF华宝",
       "dataFile": "512000.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 71156435400
+      "lastDate": "2026-09-23",
+      "latestShares": 71085635400
     },
     {
       "code": "512070",
       "name": "证券保险ETF易方达",
       "dataFile": "512070.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 16638479700
+      "lastDate": "2026-09-23",
+      "latestShares": 16708479700
     },
     {
       "code": "515120",
       "name": "创新药ETF广发",
       "dataFile": "515120.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 16929993600.000002
+      "lastDate": "2026-09-23",
+      "latestShares": 16826993600.000002
     },
     {
       "code": "589720",
       "name": "科创创新药ETF国泰",
       "dataFile": "589720.json",
       "firstDate": "2025-08-01",
-      "lastDate": "2026-09-22",
-      "latestShares": 4938823000
+      "lastDate": "2026-09-23",
+      "latestShares": 4756823000
     },
     {
       "code": "516080",
       "name": "创新药ETF易方达",
       "dataFile": "516080.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 5006554800
+      "lastDate": "2026-09-23",
+      "latestShares": 4983554800
     },
     {
       "code": "512170",
       "name": "医疗ETF华宝",
       "dataFile": "512170.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 70452820500
+      "lastDate": "2026-09-23",
+      "latestShares": 70211820500
     },
     {
       "code": "560260",
       "name": "医疗ETF广发",
       "dataFile": "560260.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
+      "lastDate": "2026-09-23",
       "latestShares": 1699664700
     },
     {
@@ -159,255 +159,255 @@
       "name": "医疗器械ETF华夏",
       "dataFile": "562600.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 437937400
+      "lastDate": "2026-09-23",
+      "latestShares": 431937400
     },
     {
       "code": "512690",
       "name": "酒ETF鹏华",
       "dataFile": "512690.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 32051950200
+      "lastDate": "2026-09-23",
+      "latestShares": 31949350200
     },
     {
       "code": "515170",
       "name": "食品饮料ETF华夏",
       "dataFile": "515170.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 8601257900
+      "lastDate": "2026-09-23",
+      "latestShares": 8610257900
     },
     {
       "code": "515650",
       "name": "消费50ETF富国",
       "dataFile": "515650.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 3095184000
+      "lastDate": "2026-09-23",
+      "latestShares": 3097184000
     },
     {
       "code": "588200",
       "name": "科创芯片ETF嘉实",
       "dataFile": "588200.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 43310684300
+      "lastDate": "2026-09-23",
+      "latestShares": 43472684300
     },
     {
       "code": "588170",
       "name": "科创半导体ETF华夏",
       "dataFile": "588170.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 46017447000
+      "lastDate": "2026-09-23",
+      "latestShares": 45729447000
     },
     {
       "code": "512480",
       "name": "半导体ETF国联安",
       "dataFile": "512480.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 19654007200
+      "lastDate": "2026-09-23",
+      "latestShares": 19658007200
     },
     {
       "code": "560780",
       "name": "半导体设备ETF广发",
       "dataFile": "560780.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 12136488000
+      "lastDate": "2026-09-23",
+      "latestShares": 12157488000
     },
     {
       "code": "588710",
       "name": "科创半导体设备ETF华泰柏瑞",
       "dataFile": "588710.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 11076885000
+      "lastDate": "2026-09-23",
+      "latestShares": 10920885000
     },
     {
       "code": "515880",
       "name": "通信ETF国泰",
       "dataFile": "515880.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 64851774000
+      "lastDate": "2026-09-23",
+      "latestShares": 65077774000
     },
     {
       "code": "515050",
       "name": "通信ETF华夏",
       "dataFile": "515050.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 17799205400
+      "lastDate": "2026-09-23",
+      "latestShares": 17725205400
     },
     {
       "code": "563010",
       "name": "电信ETF易方达",
       "dataFile": "563010.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 103189300
+      "lastDate": "2026-09-23",
+      "latestShares": 102189300
     },
     {
       "code": "515230",
       "name": "软件ETF国泰",
       "dataFile": "515230.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 7892690900
+      "lastDate": "2026-09-23",
+      "latestShares": 7896690900
     },
     {
       "code": "562930",
       "name": "软件ETF易方达",
       "dataFile": "562930.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 1665437000
+      "lastDate": "2026-09-23",
+      "latestShares": 1666437000
     },
     {
       "code": "512660",
       "name": "军工ETF国泰",
       "dataFile": "512660.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 6842080000
+      "lastDate": "2026-09-23",
+      "latestShares": 6849080000
     },
     {
       "code": "512710",
       "name": "军工龙头ETF富国",
       "dataFile": "512710.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 11241658400
+      "lastDate": "2026-09-23",
+      "latestShares": 11225658400
     },
     {
       "code": "512680",
       "name": "军工ETF广发",
       "dataFile": "512680.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 3060130100
+      "lastDate": "2026-09-23",
+      "latestShares": 3060930100
     },
     {
       "code": "562500",
       "name": "机器人ETF华夏",
       "dataFile": "562500.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 18245687300
+      "lastDate": "2026-09-23",
+      "latestShares": 18170687300
     },
     {
       "code": "560770",
       "name": "机器人ETF招商",
       "dataFile": "560770.json",
       "firstDate": "2025-09-01",
-      "lastDate": "2026-09-22",
-      "latestShares": 1650133000
+      "lastDate": "2026-09-23",
+      "latestShares": 1651633000
     },
     {
       "code": "512400",
       "name": "有色金属ETF南方",
       "dataFile": "512400.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 14197539000
+      "lastDate": "2026-09-23",
+      "latestShares": 14217039000
     },
     {
       "code": "517520",
       "name": "黄金股ETF永赢",
       "dataFile": "517520.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 7059404000
+      "lastDate": "2026-09-23",
+      "latestShares": 7045404000
     },
     {
       "code": "516650",
       "name": "有色金属ETF华夏",
       "dataFile": "516650.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 5289464800
+      "lastDate": "2026-09-23",
+      "latestShares": 5217464800
     },
     {
       "code": "515220",
       "name": "煤炭ETF国泰",
       "dataFile": "515220.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 8099676899.999999
+      "lastDate": "2026-09-23",
+      "latestShares": 8072676899.999999
     },
     {
       "code": "561360",
       "name": "石油ETF国泰",
       "dataFile": "561360.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 1239148000
+      "lastDate": "2026-09-23",
+      "latestShares": 1202148000
     },
     {
       "code": "516570",
       "name": "石化ETF易方达",
       "dataFile": "516570.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 1135357600
+      "lastDate": "2026-09-23",
+      "latestShares": 1132357600
     },
     {
       "code": "561910",
       "name": "电池ETF招商",
       "dataFile": "561910.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 4800076600
+      "lastDate": "2026-09-23",
+      "latestShares": 4792076600
     },
     {
       "code": "515030",
       "name": "新能源车ETF华夏",
       "dataFile": "515030.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 1457384000
+      "lastDate": "2026-09-23",
+      "latestShares": 1462384000
     },
     {
       "code": "561160",
       "name": "电池ETF富国",
       "dataFile": "561160.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 2288335000
+      "lastDate": "2026-09-23",
+      "latestShares": 2289835000
     },
     {
       "code": "561560",
       "name": "电力ETF华泰柏瑞",
       "dataFile": "561560.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 1915124200.0000002
+      "lastDate": "2026-09-23",
+      "latestShares": 1898624200.0000002
     },
     {
       "code": "562550",
       "name": "绿电ETF华夏",
       "dataFile": "562550.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 1419919300
+      "lastDate": "2026-09-23",
+      "latestShares": 1418419300
     },
     {
       "code": "562960",
       "name": "绿色电力ETF易方达",
       "dataFile": "562960.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 1149391000
+      "lastDate": "2026-09-23",
+      "latestShares": 1147891000
     },
     {
       "code": "513180",
       "name": "恒生科技ETF华夏",
       "dataFile": "513180.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
+      "lastDate": "2026-09-23",
       "latestShares": 71264759500
     },
     {
@@ -415,15 +415,15 @@
       "name": "中概互联网ETF易方达",
       "dataFile": "513050.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 34755432700
+      "lastDate": "2026-09-23",
+      "latestShares": 34830432700
     },
     {
       "code": "513130",
       "name": "恒生科技ETF华泰柏瑞",
       "dataFile": "513130.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
+      "lastDate": "2026-09-23",
       "latestShares": 60766347000
     },
     {
@@ -431,15 +431,15 @@
       "name": "恒生互联网ETF华夏",
       "dataFile": "513330.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 74901480000
+      "lastDate": "2026-09-23",
+      "latestShares": 75033480000
     },
     {
       "code": "513010",
       "name": "恒生科技ETF易方达",
       "dataFile": "513010.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
+      "lastDate": "2026-09-23",
       "latestShares": 44796307000
     },
     {
@@ -447,31 +447,31 @@
       "name": "30年国债ETF鹏扬",
       "dataFile": "511090.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 315538100
+      "lastDate": "2026-09-23",
+      "latestShares": 317108100
     },
     {
       "code": "511130",
       "name": "30年国债ETF博时",
       "dataFile": "511130.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 213229700
+      "lastDate": "2026-09-23",
+      "latestShares": 216839700
     },
     {
       "code": "518880",
       "name": "黄金ETF华安",
       "dataFile": "518880.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 12060440800
+      "lastDate": "2026-09-23",
+      "latestShares": 11996140800
     },
     {
       "code": "518800",
       "name": "黄金ETF国泰",
       "dataFile": "518800.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
+      "lastDate": "2026-09-23",
       "latestShares": 3988579200
     },
     {
@@ -479,8 +479,8 @@
       "name": "黄金ETF华夏",
       "dataFile": "518850.json",
       "firstDate": "2025-07-08",
-      "lastDate": "2026-09-22",
-      "latestShares": 1996278700
+      "lastDate": "2026-09-23",
+      "latestShares": 1993878700
     }
   ]
 }
