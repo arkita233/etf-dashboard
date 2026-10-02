@@ -5692,7 +5692,7 @@
   ],
   "meta": {
     "source": "SSE",
-    "fetchedAt": "2026-10-01T22:23:29.171Z",
+    "fetchedAt": "2026-10-02T21:52:51.849Z",
     "note": "real SSE API data, sliced from raw cache",
     "isMock": false
   }
